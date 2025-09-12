@@ -58,7 +58,21 @@ class LeapHandEnv(mjx_env.MjxEnv):
     self._mj_model.vis.global_.offwidth = 3840
     self._mj_model.vis.global_.offheight = 2160
 
+    # 转换 MuJoCo 模型为 MJX 模型
+    print(f"开始将 MuJoCo 模型转换为 MJX 模型: {xml_path}")
+    print(f"模型统计信息 - Bodies: {self._mj_model.nbody}, "
+          f"Joints: {self._mj_model.njnt}, "
+          f"Actuators: {self._mj_model.nu}, "
+          f"Implementation: {self._config.impl}")
+    
     self._mjx_model = mjx.put_model(self._mj_model, impl=self._config.impl)
+    
+    print("✅ MJX 模型转换成功完成!")
+    print(f"MJX 模型信息 - DOF: {self._mjx_model.nq}, "
+          f"Velocities: {self._mjx_model.nv}, "
+          f"Controls: {self._mjx_model.nu}")
+    print(f"JAX 设备: {self._mjx_model.impl}")
+    
     self._xml_path = xml_path
 
   # Sensor readings.
