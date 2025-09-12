@@ -1,43 +1,43 @@
-# Learning RL Agents
+# 训练强化学习智能体
 
-In this directory, we demonstrate learning RL agents from MuJoCo Playground environments using [Brax](https://github.com/google/brax) and [RSL-RL](https://github.com/leggedrobotics/rsl_rl). We provide two entrypoints from the command line: `python train_jax_ppo.py` and `python train_rsl_rl.py`.
+在本目录中，我们演示如何使用[Brax](https://github.com/google/brax)和[RSL-RL](https://github.com/leggedrobotics/rsl_rl)从MuJoCo Playground环境中训练强化学习智能体。我们提供两个命令行入口点：`python train_jax_ppo.py`和`python train_rsl_rl.py`。
 
-For more detailed tutorials on using MuJoCo Playground for RL, see:
+有关使用MuJoCo Playground进行强化学习的更详细教程，请参阅：
 
-1. Intro. to the Playground with DM Control Suite [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/dm_control_suite.ipynb)
-2. Locomotion Environments [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/locomotion.ipynb)
-3. Manipulation Environments [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/manipulation.ipynb)
-4. Training CartPole from Vision [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/training_vision_1.ipynb)
-5. Robotic Manipulation from Vision [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/training_vision_2.ipynb)
+1. 使用DM Control Suite的Playground介绍 [![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/dm_control_suite.ipynb)
+2. 运动环境 [![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/locomotion.ipynb)
+3. 操作环境 [![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/manipulation.ipynb)
+4. 从视觉训练CartPole [![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/training_vision_1.ipynb)
+5. 从视觉进行机器人操作 [![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/training_vision_2.ipynb)
 
-## Training with brax PPO
+## 使用brax PPO进行训练
 
-To train with brax PPO, you can use the `train_jax_ppo.py` script. This script uses the brax PPO algorithm to train an agent on a given environment.
+要使用brax PPO进行训练，可以使用`train_jax_ppo.py`脚本。该脚本使用brax PPO算法在给定环境中训练智能体。
 
 ```bash
 python train_jax_ppo.py --env_name=CartpoleBalance
 ```
 
-To train a vision-based policy using pixel observations:
+要使用像素观察训练基于视觉的策略：
 ```bash
 python train_jax_ppo.py --env_name=CartpoleBalance --vision
 ```
 
-Use `python train_jax_ppo.py --help` to see possible options and usage. Logs and checkpoints are saved in `logs` directory.
+使用`python train_jax_ppo.py --help`查看可能的选项和用法。日志和检查点保存在`logs`目录中。
 
-## Training with RSL-RL
+## 使用RSL-RL进行训练
 
-To train with RSL-RL, you can use the `train_rsl_rl.py` script. This script uses the RSL-RL algorithm to train an agent on a given environment.
+要使用RSL-RL进行训练，可以使用`train_rsl_rl.py`脚本。该脚本使用RSL-RL算法在给定环境中训练智能体。
 
 ```bash
 python train_rsl_rl.py --env_name=LeapCubeReorient
 ```
 
-To render the behaviour from the resulting policy:
+要渲染结果策略的行为：
 ```bash
 python learning/train_rsl_rl.py --env_name LeapCubeReorient --play_only --load_run_name <run_name>
 ```
 
-where `run_name` is the name of the run you want to load (will be printed in the console when the training run is started).
+其中`run_name`是您要加载的运行名称（在训练运行开始时会在控制台中打印）。
 
-Logs and checkpoints are saved in `logs` directory.
+日志和检查点保存在`logs`目录中。

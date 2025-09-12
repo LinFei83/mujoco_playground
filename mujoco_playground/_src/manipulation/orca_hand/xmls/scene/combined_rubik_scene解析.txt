@@ -1,0 +1,230 @@
+模型: combined_rubik_scene.xml
+
+关节信息:
+--------------------------------------------------
+1. 名称: rubik-v1.50/cube_tx
+   类型: slide
+   限制: 否
+   连接的body: rubik-v1.50/middle
+
+2. 名称: rubik-v1.50/cube_ty
+   类型: slide
+   限制: 否
+   连接的body: rubik-v1.50/middle
+
+3. 名称: rubik-v1.50/cube_tz
+   类型: slide
+   限制: 否
+   连接的body: rubik-v1.50/middle
+
+4. 名称: rubik-v1.50/cube_rot
+   类型: ball
+   限制: 否
+   连接的body: rubik-v1.50/middle
+
+5. 名称: orcahand_right/right_wrist
+   类型: hinge
+   限制: 是
+   范围: [-0.6736, 0.8972]
+   连接的body: orcahand_right/right_palm
+
+6. 名称: orcahand_right/right_thumb_mcp
+   类型: hinge
+   限制: 是
+   范围: [-0.87266, 0.87266]
+   连接的body: orcahand_right/right_thumb_mp
+
+7. 名称: orcahand_right/right_thumb_abd
+   类型: hinge
+   限制: 是
+   范围: [-1.08211, 0.0]
+   连接的body: orcahand_right/right_thumb_pp
+
+8. 名称: orcahand_right/right_thumb_pip
+   类型: hinge
+   限制: 是
+   范围: [-0.7944, 1.23]
+   连接的body: orcahand_right/right_thumb_ip
+
+9. 名称: orcahand_right/right_thumb_dip
+   类型: hinge
+   限制: 是
+   范围: [-0.85384, 1.45]
+   连接的body: orcahand_right/right_thumb_dp
+
+10. 名称: orcahand_right/right_index_abd
+   类型: hinge
+   限制: 是
+   范围: [-1.04577, 0.24577]
+   连接的body: orcahand_right/right_index_mp
+
+11. 名称: orcahand_right/right_index_mcp
+   类型: hinge
+   限制: 是
+   范围: [-0.34907, 1.65806]
+   连接的body: orcahand_right/right_index_pp
+
+12. 名称: orcahand_right/right_index_pip
+   类型: hinge
+   限制: 是
+   范围: [-0.34907, 1.88496]
+   连接的body: orcahand_right/right_index_ip
+
+13. 名称: orcahand_right/right_middle_abd
+   类型: hinge
+   限制: 是
+   范围: [-0.64577, 0.64577]
+   连接的body: orcahand_right/right_middle_mp
+
+14. 名称: orcahand_right/right_middle_mcp
+   类型: hinge
+   限制: 是
+   范围: [-0.34907, 1.58825]
+   连接的body: orcahand_right/right_middle_pp
+
+15. 名称: orcahand_right/right_middle_pip
+   类型: hinge
+   限制: 是
+   范围: [-0.34907, 1.8675]
+   连接的body: orcahand_right/right_middle_ip
+
+16. 名称: orcahand_right/right_ring_abd
+   类型: hinge
+   限制: 是
+   范围: [-0.47577, 0.80577]
+   连接的body: orcahand_right/right_ring_mp
+
+17. 名称: orcahand_right/right_ring_mcp
+   类型: hinge
+   限制: 是
+   范围: [-0.34907, 1.58825]
+   连接的body: orcahand_right/right_ring_pp
+
+18. 名称: orcahand_right/right_ring_pip
+   类型: hinge
+   限制: 是
+   范围: [-0.34907, 1.8675]
+   连接的body: orcahand_right/right_ring_ip
+
+19. 名称: orcahand_right/right_pinky_abd
+   类型: hinge
+   限制: 是
+   范围: [-0.12244, 1.1691]
+   连接的body: orcahand_right/right_pinky_mp
+
+20. 名称: orcahand_right/right_pinky_mcp
+   类型: hinge
+   限制: 是
+   范围: [-0.34907, 1.71042]
+   连接的body: orcahand_right/right_pinky_pp
+
+21. 名称: orcahand_right/right_pinky_pip
+   类型: hinge
+   限制: 是
+   范围: [-0.34907, 1.88496]
+   连接的body: orcahand_right/right_pinky_ip
+
+执行器信息:
+--------------------------------------------------
+1. 名称: orcahand_right/right_wrist_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.6736, 0.8972]
+   力范围: [-1.0, 1.0]
+
+2. 名称: orcahand_right/right_thumb_mcp_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.87266, 0.87266]
+   力范围: [-1.0, 1.0]
+
+3. 名称: orcahand_right/right_thumb_abd_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-1.08211, 0.0]
+   力范围: [-1.0, 1.0]
+
+4. 名称: orcahand_right/right_thumb_pip_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.7944, 1.23]
+   力范围: [-1.0, 1.0]
+
+5. 名称: orcahand_right/right_thumb_dip_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.85384, 1.45]
+   力范围: [-1.0, 1.0]
+
+6. 名称: orcahand_right/right_index_abd_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-1.04577, 0.24577]
+   力范围: [-1.0, 1.0]
+
+7. 名称: orcahand_right/right_index_mcp_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.34907, 1.65806]
+   力范围: [-1.0, 1.0]
+
+8. 名称: orcahand_right/right_index_pip_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.34907, 1.88496]
+   力范围: [-1.0, 1.0]
+
+9. 名称: orcahand_right/right_middle_abd_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.64577, 0.64577]
+   力范围: [-1.0, 1.0]
+
+10. 名称: orcahand_right/right_middle_mcp_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.34907, 1.58825]
+   力范围: [-1.0, 1.0]
+
+11. 名称: orcahand_right/right_middle_pip_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.34907, 1.8675]
+   力范围: [-1.0, 1.0]
+
+12. 名称: orcahand_right/right_ring_abd_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.47577, 0.80577]
+   力范围: [-1.0, 1.0]
+
+13. 名称: orcahand_right/right_ring_mcp_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.34907, 1.58825]
+   力范围: [-1.0, 1.0]
+
+14. 名称: orcahand_right/right_ring_pip_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.34907, 1.8675]
+   力范围: [-1.0, 1.0]
+
+15. 名称: orcahand_right/right_pinky_abd_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.12244, 1.1691]
+   力范围: [-1.0, 1.0]
+
+16. 名称: orcahand_right/right_pinky_mcp_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.34907, 1.71042]
+   力范围: [-1.0, 1.0]
+
+17. 名称: orcahand_right/right_pinky_pip_actuator
+   类型: none
+   传动对象: None
+   控制范围: [-0.34907, 1.88496]
+   力范围: [-1.0, 1.0]
+

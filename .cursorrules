@@ -1,0 +1,160 @@
+# MuJoCo Playground Cursor Rules
+
+## 项目概述
+这是一个基于MuJoCo MJX的GPU加速机器人学习环境套件，用于机器人学习研究和仿真到现实的转换。项目使用JAX、Flax和MuJoCo技术栈。
+
+## 代码风格和格式化
+
+### Python代码规范
+- 使用Python 3.10+语法
+- 遵循PEP 8代码风格
+- 使用pyink进行代码格式化（行长度80字符，2空格缩进）
+- 使用ruff进行代码检查和import排序
+- 使用mypy进行类型检查
+
+### 具体格式要求
+- 行长度：80字符（pyink）
+- 缩进：2空格
+- 字符串引号：使用多数引号风格
+- import语句：按字母顺序排序，单行导入
+
+## 技术栈和依赖
+
+### 核心依赖
+- **MuJoCo**: 物理仿真引擎 (>=3.3.6.dev)
+- **MuJoCo MJX**: JAX实现的MuJoCo (>=3.3.6.dev) 
+- **JAX**: 数值计算和自动微分
+- **Flax**: JAX神经网络库
+- **Brax**: 强化学习环境 (>=0.12.5)
+- **Warp-lang**: GPU加速物理仿真 (>=1.9.0.dev)
+
+### 开发工具
+- **pytest**: 单元测试
+- **mypy**: 类型检查
+- **ruff**: 代码检查和格式化
+- **pyink**: 代码格式化
+- **pylint**: 代码质量检查
+- **pre-commit**: Git钩子
+
+## 项目结构
+
+### 主要模块
+- `mujoco_playground/_src/`: 核心源代码
+  - `locomotion/`: 运动控制环境（四足、双足机器人）
+  - `manipulation/`: 操作环境（机械臂、灵巧手）
+  - `wrapper.py`: 环境包装器
+  - `registry.py`: 环境注册
+- `mujoco_playground/config/`: 配置参数
+- `learning/`: 学习算法实现
+- `assets/`: 资源文件
+
+### 机器人支持
+**运动控制机器人:**
+- T1 (unitree)
+- H1 (unitree) 
+- G1 (unitree)
+- Go1 (unitree)
+- Spot (Boston Dynamics)
+- Berkeley Humanoid
+- OP3
+
+**操作机器人:**
+- Franka Emika Panda
+- LEAP Hand
+- ALOHA双臂系统
+- Robotiq夹爪
+
+## 编码指南
+
+### 环境开发
+- 继承基础环境类并实现必要方法
+- 使用JAX进行向量化计算
+- 实现reward函数和reset逻辑
+- 添加适当的观察空间和动作空间定义
+
+### 测试要求
+- 为新功能编写单元测试
+- 测试文件放在对应模块的`*_test.py`文件中
+- 使用pytest运行测试
+- 确保GPU和CPU模式都能正常工作
+
+### 性能优化
+- 优先使用JAX的jit编译
+- 避免Python循环，使用向量化操作
+- 合理使用vmap进行批处理
+- 注意内存使用，避免不必要的数据复制
+
+### 文档和注释
+- 为公共API编写详细的docstring
+- 使用Google风格的docstring格式
+- 注释复杂的数学计算和物理逻辑
+- 更新相关的README和文档
+
+## 特殊考虑
+
+### MJX特定
+- 理解MJX的函数式编程范式
+- 正确处理不可变数据结构
+- 使用MJX的向量化功能进行批处理
+- 注意MJX和传统MuJoCo的API差异
+
+### GPU加速
+- 确保代码在GPU上高效运行
+- 避免频繁的CPU-GPU数据传输
+- 使用适当的JAX设备放置
+- 测试不同批次大小的性能
+
+### 实验性功能
+- `experimental/`目录中的代码可能不稳定
+- 实验性代码不需要严格遵循所有规范
+- 但仍需保持基本的可读性和文档
+
+## 常见模式
+
+### 环境注册
+```python
+@register_env(name="robot_task", backend="mjx")
+def make_env(**kwargs) -> MJXEnv:
+    return RobotTaskEnv(**kwargs)
+```
+
+### JAX变换
+```python
+# 使用jit编译提升性能
+@jax.jit
+def step_fn(state, action):
+    return new_state, reward, done, info
+
+# 使用vmap进行批处理
+batch_step = jax.vmap(step_fn, in_axes=(0, 0))
+```
+
+### 错误处理
+- 使用适当的异常类型
+- 提供有意义的错误信息
+- 在可能的地方进行输入验证
+
+## 提交指南
+- 提交前运行完整的测试套件
+- 确保代码通过所有linter检查
+- 遵循conventional commit格式
+- 更新相关文档和CHANGELOG
+
+## 性能基准
+- 新环境应包含性能基准测试
+- 记录FPS和内存使用情况
+- 与现有环境进行性能对比
+- 优化批处理性能
+
+## 不要做的事情
+- 不要在核心路径中使用Python循环
+- 不要忽略类型注解
+- 不要提交未经测试的代码
+- 不要破坏现有的API兼容性
+- 不要在生产代码中使用print语句（使用logging）
+
+## 调试技巧
+- 使用JAX的debugging工具
+- 利用MuJoCo的可视化功能
+- 检查数值稳定性
+- 监控梯度流和数值范围
