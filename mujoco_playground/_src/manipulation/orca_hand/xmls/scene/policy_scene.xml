@@ -49,178 +49,178 @@
     <default class="unnamed_model_4/"/>
   </default>
   <asset>
-    <texture name="unnamed_model/texture000" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material000.png"/>
+    <texture name="unnamed_model/texture000" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material000.png"/>
     <material name="unnamed_model/material000" class="unnamed_model/" texture="unnamed_model/texture000" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture001" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material001.png"/>
+    <texture name="unnamed_model/texture001" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material001.png"/>
     <material name="unnamed_model/material001" class="unnamed_model/" texture="unnamed_model/texture001" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture002" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material002.png"/>
+    <texture name="unnamed_model/texture002" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material002.png"/>
     <material name="unnamed_model/material002" class="unnamed_model/" texture="unnamed_model/texture002" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture010" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material010.png"/>
+    <texture name="unnamed_model/texture010" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material010.png"/>
     <material name="unnamed_model/material010" class="unnamed_model/" texture="unnamed_model/texture010" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture011" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material011.png"/>
+    <texture name="unnamed_model/texture011" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material011.png"/>
     <material name="unnamed_model/material011" class="unnamed_model/" texture="unnamed_model/texture011" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture012" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material012.png"/>
+    <texture name="unnamed_model/texture012" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material012.png"/>
     <material name="unnamed_model/material012" class="unnamed_model/" texture="unnamed_model/texture012" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture020" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material020.png"/>
+    <texture name="unnamed_model/texture020" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material020.png"/>
     <material name="unnamed_model/material020" class="unnamed_model/" texture="unnamed_model/texture020" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture021" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material021.png"/>
+    <texture name="unnamed_model/texture021" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material021.png"/>
     <material name="unnamed_model/material021" class="unnamed_model/" texture="unnamed_model/texture021" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture022" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material022.png"/>
+    <texture name="unnamed_model/texture022" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material022.png"/>
     <material name="unnamed_model/material022" class="unnamed_model/" texture="unnamed_model/texture022" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture100" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material100.png"/>
+    <texture name="unnamed_model/texture100" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material100.png"/>
     <material name="unnamed_model/material100" class="unnamed_model/" texture="unnamed_model/texture100" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture101" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material101.png"/>
+    <texture name="unnamed_model/texture101" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material101.png"/>
     <material name="unnamed_model/material101" class="unnamed_model/" texture="unnamed_model/texture101" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture102" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material102.png"/>
+    <texture name="unnamed_model/texture102" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material102.png"/>
     <material name="unnamed_model/material102" class="unnamed_model/" texture="unnamed_model/texture102" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture110" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material110.png"/>
+    <texture name="unnamed_model/texture110" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material110.png"/>
     <material name="unnamed_model/material110" class="unnamed_model/" texture="unnamed_model/texture110" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture111" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/cube/material111.png"/>
+    <texture name="unnamed_model/texture111" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/cube/material111.png"/>
     <material name="unnamed_model/material111" class="unnamed_model/" texture="unnamed_model/texture111" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture112" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material112.png"/>
+    <texture name="unnamed_model/texture112" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material112.png"/>
     <material name="unnamed_model/material112" class="unnamed_model/" texture="unnamed_model/texture112" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture120" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material120.png"/>
+    <texture name="unnamed_model/texture120" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material120.png"/>
     <material name="unnamed_model/material120" class="unnamed_model/" texture="unnamed_model/texture120" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture121" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material121.png"/>
+    <texture name="unnamed_model/texture121" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material121.png"/>
     <material name="unnamed_model/material121" class="unnamed_model/" texture="unnamed_model/texture121" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture122" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material122.png"/>
+    <texture name="unnamed_model/texture122" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material122.png"/>
     <material name="unnamed_model/material122" class="unnamed_model/" texture="unnamed_model/texture122" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture200" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material200.png"/>
+    <texture name="unnamed_model/texture200" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material200.png"/>
     <material name="unnamed_model/material200" class="unnamed_model/" texture="unnamed_model/texture200" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture201" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material201.png"/>
+    <texture name="unnamed_model/texture201" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material201.png"/>
     <material name="unnamed_model/material201" class="unnamed_model/" texture="unnamed_model/texture201" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture202" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material202.png"/>
+    <texture name="unnamed_model/texture202" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material202.png"/>
     <material name="unnamed_model/material202" class="unnamed_model/" texture="unnamed_model/texture202" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture210" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material210.png"/>
+    <texture name="unnamed_model/texture210" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material210.png"/>
     <material name="unnamed_model/material210" class="unnamed_model/" texture="unnamed_model/texture210" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture211" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material211.png"/>
+    <texture name="unnamed_model/texture211" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material211.png"/>
     <material name="unnamed_model/material211" class="unnamed_model/" texture="unnamed_model/texture211" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture212" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material212.png"/>
+    <texture name="unnamed_model/texture212" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material212.png"/>
     <material name="unnamed_model/material212" class="unnamed_model/" texture="unnamed_model/texture212" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture220" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material220.png"/>
+    <texture name="unnamed_model/texture220" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material220.png"/>
     <material name="unnamed_model/material220" class="unnamed_model/" texture="unnamed_model/texture220" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture221" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material221.png"/>
+    <texture name="unnamed_model/texture221" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material221.png"/>
     <material name="unnamed_model/material221" class="unnamed_model/" texture="unnamed_model/texture221" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model/texture222" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material222.png"/>
+    <texture name="unnamed_model/texture222" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material222.png"/>
     <material name="unnamed_model/material222" class="unnamed_model/" texture="unnamed_model/texture222" specular="1" shininess="0.29999999999999999"/>
-    <mesh name="unnamed_model/rounded_cube" class="unnamed_model/" file="/home/lf/project/Emulation/mujoco/assets/rubik/roundcube.msh" scale="0.095000000000000001 0.095000000000000001 0.095000000000000001"/>
-    <texture name="unnamed_model_1/texture000" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material000.png"/>
+    <mesh name="unnamed_model/rounded_cube" class="unnamed_model/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/roundcube.msh" scale="0.095000000000000001 0.095000000000000001 0.095000000000000001"/>
+    <texture name="unnamed_model_1/texture000" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material000.png"/>
     <material name="unnamed_model_1/material000" class="unnamed_model_1/" texture="unnamed_model_1/texture000" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture001" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material001.png"/>
+    <texture name="unnamed_model_1/texture001" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material001.png"/>
     <material name="unnamed_model_1/material001" class="unnamed_model_1/" texture="unnamed_model_1/texture001" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture002" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material002.png"/>
+    <texture name="unnamed_model_1/texture002" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material002.png"/>
     <material name="unnamed_model_1/material002" class="unnamed_model_1/" texture="unnamed_model_1/texture002" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture010" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material010.png"/>
+    <texture name="unnamed_model_1/texture010" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material010.png"/>
     <material name="unnamed_model_1/material010" class="unnamed_model_1/" texture="unnamed_model_1/texture010" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture011" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material011.png"/>
+    <texture name="unnamed_model_1/texture011" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material011.png"/>
     <material name="unnamed_model_1/material011" class="unnamed_model_1/" texture="unnamed_model_1/texture011" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture012" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material012.png"/>
+    <texture name="unnamed_model_1/texture012" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material012.png"/>
     <material name="unnamed_model_1/material012" class="unnamed_model_1/" texture="unnamed_model_1/texture012" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture020" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material020.png"/>
+    <texture name="unnamed_model_1/texture020" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material020.png"/>
     <material name="unnamed_model_1/material020" class="unnamed_model_1/" texture="unnamed_model_1/texture020" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture021" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material021.png"/>
+    <texture name="unnamed_model_1/texture021" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material021.png"/>
     <material name="unnamed_model_1/material021" class="unnamed_model_1/" texture="unnamed_model_1/texture021" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture022" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material022.png"/>
+    <texture name="unnamed_model_1/texture022" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material022.png"/>
     <material name="unnamed_model_1/material022" class="unnamed_model_1/" texture="unnamed_model_1/texture022" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture100" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material100.png"/>
+    <texture name="unnamed_model_1/texture100" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material100.png"/>
     <material name="unnamed_model_1/material100" class="unnamed_model_1/" texture="unnamed_model_1/texture100" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture101" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material101.png"/>
+    <texture name="unnamed_model_1/texture101" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material101.png"/>
     <material name="unnamed_model_1/material101" class="unnamed_model_1/" texture="unnamed_model_1/texture101" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture102" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material102.png"/>
+    <texture name="unnamed_model_1/texture102" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material102.png"/>
     <material name="unnamed_model_1/material102" class="unnamed_model_1/" texture="unnamed_model_1/texture102" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture110" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material110.png"/>
+    <texture name="unnamed_model_1/texture110" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material110.png"/>
     <material name="unnamed_model_1/material110" class="unnamed_model_1/" texture="unnamed_model_1/texture110" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture111" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/cube/material111.png"/>
+    <texture name="unnamed_model_1/texture111" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/cube/material111.png"/>
     <material name="unnamed_model_1/material111" class="unnamed_model_1/" texture="unnamed_model_1/texture111" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture112" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material112.png"/>
+    <texture name="unnamed_model_1/texture112" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material112.png"/>
     <material name="unnamed_model_1/material112" class="unnamed_model_1/" texture="unnamed_model_1/texture112" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture120" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material120.png"/>
+    <texture name="unnamed_model_1/texture120" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material120.png"/>
     <material name="unnamed_model_1/material120" class="unnamed_model_1/" texture="unnamed_model_1/texture120" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture121" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material121.png"/>
+    <texture name="unnamed_model_1/texture121" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material121.png"/>
     <material name="unnamed_model_1/material121" class="unnamed_model_1/" texture="unnamed_model_1/texture121" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture122" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material122.png"/>
+    <texture name="unnamed_model_1/texture122" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material122.png"/>
     <material name="unnamed_model_1/material122" class="unnamed_model_1/" texture="unnamed_model_1/texture122" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture200" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material200.png"/>
+    <texture name="unnamed_model_1/texture200" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material200.png"/>
     <material name="unnamed_model_1/material200" class="unnamed_model_1/" texture="unnamed_model_1/texture200" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture201" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material201.png"/>
+    <texture name="unnamed_model_1/texture201" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material201.png"/>
     <material name="unnamed_model_1/material201" class="unnamed_model_1/" texture="unnamed_model_1/texture201" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture202" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material202.png"/>
+    <texture name="unnamed_model_1/texture202" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material202.png"/>
     <material name="unnamed_model_1/material202" class="unnamed_model_1/" texture="unnamed_model_1/texture202" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture210" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material210.png"/>
+    <texture name="unnamed_model_1/texture210" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material210.png"/>
     <material name="unnamed_model_1/material210" class="unnamed_model_1/" texture="unnamed_model_1/texture210" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture211" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material211.png"/>
+    <texture name="unnamed_model_1/texture211" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material211.png"/>
     <material name="unnamed_model_1/material211" class="unnamed_model_1/" texture="unnamed_model_1/texture211" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture212" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material212.png"/>
+    <texture name="unnamed_model_1/texture212" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material212.png"/>
     <material name="unnamed_model_1/material212" class="unnamed_model_1/" texture="unnamed_model_1/texture212" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture220" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material220.png"/>
+    <texture name="unnamed_model_1/texture220" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material220.png"/>
     <material name="unnamed_model_1/material220" class="unnamed_model_1/" texture="unnamed_model_1/texture220" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture221" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material221.png"/>
+    <texture name="unnamed_model_1/texture221" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material221.png"/>
     <material name="unnamed_model_1/material221" class="unnamed_model_1/" texture="unnamed_model_1/texture221" specular="1" shininess="0.29999999999999999"/>
-    <texture name="unnamed_model_1/texture222" type="2d" file="/home/lf/project/Emulation/mujoco/assets/rubik/meshes/textures/material222.png"/>
+    <texture name="unnamed_model_1/texture222" type="2d" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/meshes/textures/material222.png"/>
     <material name="unnamed_model_1/material222" class="unnamed_model_1/" texture="unnamed_model_1/texture222" specular="1" shininess="0.29999999999999999"/>
-    <mesh name="unnamed_model_1/rounded_cube" class="unnamed_model_1/" file="/home/lf/project/Emulation/mujoco/assets/rubik/roundcube.msh" scale="0.095000000000000001 0.095000000000000001 0.095000000000000001"/>
-    <mesh name="orcahand_right/right_visual_tower_main_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_tower_main.stl"/>
-    <mesh name="orcahand_right/right_visual_tower_hull_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_tower_hull.stl"/>
-    <mesh name="orcahand_right/right_visual_tower_text_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_tower_text.stl"/>
-    <mesh name="orcahand_right/right_visual_palm_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_palm.stl"/>
-    <mesh name="orcahand_right/right_visual_thumb_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_mp.stl"/>
-    <mesh name="orcahand_right/right_visual_thumb_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_pp.stl"/>
-    <mesh name="orcahand_right/right_visual_thumb_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_ip.stl"/>
-    <mesh name="orcahand_right/right_visual_thumb_dp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_dp.stl"/>
-    <mesh name="orcahand_right/right_visual_index_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_index_mp.stl"/>
-    <mesh name="orcahand_right/right_visual_index_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_index_pp.stl"/>
-    <mesh name="orcahand_right/right_visual_index_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_index_ip.stl"/>
-    <mesh name="orcahand_right/right_visual_middle_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_middle_mp.stl"/>
-    <mesh name="orcahand_right/right_visual_middle_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_middle_pp.stl"/>
-    <mesh name="orcahand_right/right_visual_middle_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_middle_ip.stl"/>
-    <mesh name="orcahand_right/right_visual_ring_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_ring_mp.stl"/>
-    <mesh name="orcahand_right/right_visual_ring_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_ring_pp.stl"/>
-    <mesh name="orcahand_right/right_visual_ring_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_ring_ip.stl"/>
-    <mesh name="orcahand_right/right_visual_pinky_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_mp.stl"/>
-    <mesh name="orcahand_right/right_visual_pinky_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_pp.stl"/>
-    <mesh name="orcahand_right/right_visual_pinky_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_ip.stl"/>
-    <mesh name="orcahand_right/right_visual_palm_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_palm_skin.stl"/>
-    <mesh name="orcahand_right/right_visual_thumb_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_ip_skin.stl"/>
-    <mesh name="orcahand_right/right_visual_thumb_dp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_dp_skin.stl"/>
-    <mesh name="orcahand_right/right_visual_index_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_index_pp_skin.stl"/>
-    <mesh name="orcahand_right/right_visual_index_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_index_ip_skin.stl"/>
-    <mesh name="orcahand_right/right_visual_middle_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_middle_pp_skin.stl"/>
-    <mesh name="orcahand_right/right_visual_middle_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_middle_ip_skin.stl"/>
-    <mesh name="orcahand_right/right_visual_ring_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_ring_pp_skin.stl"/>
-    <mesh name="orcahand_right/right_visual_ring_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_ring_ip_skin.stl"/>
-    <mesh name="orcahand_right/right_visual_pinky_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_pp_skin.stl"/>
-    <mesh name="orcahand_right/right_visual_pinky_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_ip_skin.stl"/>
-    <mesh name="orcahand_right/right_collision_tower_main_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_tower_main.stl"/>
-    <mesh name="orcahand_right/right_collision_tower_hull_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_tower_hull.stl"/>
-    <mesh name="orcahand_right/right_collision_tower_text_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_tower_text.stl"/>
-    <mesh name="orcahand_right/right_collision_palm_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_palm.stl"/>
-    <mesh name="orcahand_right/right_collision_thumb_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_mp.stl"/>
-    <mesh name="orcahand_right/right_collision_thumb_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_pp.stl"/>
-    <mesh name="orcahand_right/right_collision_thumb_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_ip.stl"/>
-    <mesh name="orcahand_right/right_collision_thumb_dp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_dp.stl"/>
-    <mesh name="orcahand_right/right_collision_index_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_index_mp.stl"/>
-    <mesh name="orcahand_right/right_collision_index_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_index_pp.stl"/>
-    <mesh name="orcahand_right/right_collision_index_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_index_ip.stl"/>
-    <mesh name="orcahand_right/right_collision_middle_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_middle_mp.stl"/>
-    <mesh name="orcahand_right/right_collision_middle_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_middle_pp.stl"/>
-    <mesh name="orcahand_right/right_collision_middle_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_middle_ip.stl"/>
-    <mesh name="orcahand_right/right_collision_ring_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_ring_mp.stl"/>
-    <mesh name="orcahand_right/right_collision_ring_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_ring_pp.stl"/>
-    <mesh name="orcahand_right/right_collision_ring_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_ring_ip.stl"/>
-    <mesh name="orcahand_right/right_collision_pinky_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_pinky_mp.stl"/>
-    <mesh name="orcahand_right/right_collision_pinky_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_pinky_pp.stl"/>
-    <mesh name="orcahand_right/right_collision_pinky_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_pinky_ip.stl"/>
-    <mesh name="orcahand_right/right_collision_palm_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_palm_skin.stl"/>
-    <mesh name="orcahand_right/right_collision_thumb_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_ip_skin.stl"/>
-    <mesh name="orcahand_right/right_collision_thumb_dp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_dp_skin.stl"/>
-    <mesh name="orcahand_right/right_collision_index_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_index_pp_skin.stl"/>
-    <mesh name="orcahand_right/right_collision_index_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_index_ip_skin.stl"/>
-    <mesh name="orcahand_right/right_collision_middle_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_middle_pp_skin.stl"/>
-    <mesh name="orcahand_right/right_collision_middle_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_middle_ip_skin.stl"/>
-    <mesh name="orcahand_right/right_collision_ring_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_ring_pp_skin.stl"/>
-    <mesh name="orcahand_right/right_collision_ring_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_ring_ip_skin.stl"/>
-    <mesh name="orcahand_right/right_collision_pinky_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_pinky_pp_skin.stl"/>
-    <mesh name="orcahand_right/right_collision_pinky_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/collision/right_collision_pinky_ip_skin.stl"/>
+    <mesh name="unnamed_model_1/rounded_cube" class="unnamed_model_1/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/rubik/roundcube.msh" scale="0.095000000000000001 0.095000000000000001 0.095000000000000001"/>
+    <mesh name="orcahand_right/right_visual_tower_main_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_tower_main.stl"/>
+    <mesh name="orcahand_right/right_visual_tower_hull_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_tower_hull.stl"/>
+    <mesh name="orcahand_right/right_visual_tower_text_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_tower_text.stl"/>
+    <mesh name="orcahand_right/right_visual_palm_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_palm.stl"/>
+    <mesh name="orcahand_right/right_visual_thumb_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_mp.stl"/>
+    <mesh name="orcahand_right/right_visual_thumb_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_pp.stl"/>
+    <mesh name="orcahand_right/right_visual_thumb_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_ip.stl"/>
+    <mesh name="orcahand_right/right_visual_thumb_dp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_dp.stl"/>
+    <mesh name="orcahand_right/right_visual_index_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_index_mp.stl"/>
+    <mesh name="orcahand_right/right_visual_index_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_index_pp.stl"/>
+    <mesh name="orcahand_right/right_visual_index_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_index_ip.stl"/>
+    <mesh name="orcahand_right/right_visual_middle_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_middle_mp.stl"/>
+    <mesh name="orcahand_right/right_visual_middle_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_middle_pp.stl"/>
+    <mesh name="orcahand_right/right_visual_middle_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_middle_ip.stl"/>
+    <mesh name="orcahand_right/right_visual_ring_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_ring_mp.stl"/>
+    <mesh name="orcahand_right/right_visual_ring_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_ring_pp.stl"/>
+    <mesh name="orcahand_right/right_visual_ring_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_ring_ip.stl"/>
+    <mesh name="orcahand_right/right_visual_pinky_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_mp.stl"/>
+    <mesh name="orcahand_right/right_visual_pinky_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_pp.stl"/>
+    <mesh name="orcahand_right/right_visual_pinky_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_ip.stl"/>
+    <mesh name="orcahand_right/right_visual_palm_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_palm_skin.stl"/>
+    <mesh name="orcahand_right/right_visual_thumb_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_ip_skin.stl"/>
+    <mesh name="orcahand_right/right_visual_thumb_dp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_dp_skin.stl"/>
+    <mesh name="orcahand_right/right_visual_index_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_index_pp_skin.stl"/>
+    <mesh name="orcahand_right/right_visual_index_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_index_ip_skin.stl"/>
+    <mesh name="orcahand_right/right_visual_middle_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_middle_pp_skin.stl"/>
+    <mesh name="orcahand_right/right_visual_middle_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_middle_ip_skin.stl"/>
+    <mesh name="orcahand_right/right_visual_ring_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_ring_pp_skin.stl"/>
+    <mesh name="orcahand_right/right_visual_ring_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_ring_ip_skin.stl"/>
+    <mesh name="orcahand_right/right_visual_pinky_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_pp_skin.stl"/>
+    <mesh name="orcahand_right/right_visual_pinky_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_ip_skin.stl"/>
+    <mesh name="orcahand_right/right_collision_tower_main_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_tower_main.stl"/>
+    <mesh name="orcahand_right/right_collision_tower_hull_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_tower_hull.stl"/>
+    <mesh name="orcahand_right/right_collision_tower_text_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_tower_text.stl"/>
+    <mesh name="orcahand_right/right_collision_palm_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_palm.stl"/>
+    <mesh name="orcahand_right/right_collision_thumb_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_mp.stl"/>
+    <mesh name="orcahand_right/right_collision_thumb_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_pp.stl"/>
+    <mesh name="orcahand_right/right_collision_thumb_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_ip.stl"/>
+    <mesh name="orcahand_right/right_collision_thumb_dp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_dp.stl"/>
+    <mesh name="orcahand_right/right_collision_index_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_index_mp.stl"/>
+    <mesh name="orcahand_right/right_collision_index_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_index_pp.stl"/>
+    <mesh name="orcahand_right/right_collision_index_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_index_ip.stl"/>
+    <mesh name="orcahand_right/right_collision_middle_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_middle_mp.stl"/>
+    <mesh name="orcahand_right/right_collision_middle_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_middle_pp.stl"/>
+    <mesh name="orcahand_right/right_collision_middle_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_middle_ip.stl"/>
+    <mesh name="orcahand_right/right_collision_ring_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_ring_mp.stl"/>
+    <mesh name="orcahand_right/right_collision_ring_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_ring_pp.stl"/>
+    <mesh name="orcahand_right/right_collision_ring_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_ring_ip.stl"/>
+    <mesh name="orcahand_right/right_collision_pinky_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_pinky_mp.stl"/>
+    <mesh name="orcahand_right/right_collision_pinky_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_pinky_pp.stl"/>
+    <mesh name="orcahand_right/right_collision_pinky_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_pinky_ip.stl"/>
+    <mesh name="orcahand_right/right_collision_palm_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_palm_skin.stl"/>
+    <mesh name="orcahand_right/right_collision_thumb_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_ip_skin.stl"/>
+    <mesh name="orcahand_right/right_collision_thumb_dp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_thumb_dp_skin.stl"/>
+    <mesh name="orcahand_right/right_collision_index_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_index_pp_skin.stl"/>
+    <mesh name="orcahand_right/right_collision_index_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_index_ip_skin.stl"/>
+    <mesh name="orcahand_right/right_collision_middle_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_middle_pp_skin.stl"/>
+    <mesh name="orcahand_right/right_collision_middle_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_middle_ip_skin.stl"/>
+    <mesh name="orcahand_right/right_collision_ring_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_ring_pp_skin.stl"/>
+    <mesh name="orcahand_right/right_collision_ring_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_ring_ip_skin.stl"/>
+    <mesh name="orcahand_right/right_collision_pinky_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_pinky_pp_skin.stl"/>
+    <mesh name="orcahand_right/right_collision_pinky_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/Dexterous_Hand/mjcf/right/collision/right_collision_pinky_ip_skin.stl"/>
     <material name="orcahand_right/white" class="orcahand_right/" specular="0.10000000000000001" shininess="0.5" rgba="1 1 1 1"/>
     <material name="orcahand_right/black" class="orcahand_right/" specular="0.050000000000000003" shininess="0.20000000000000001" rgba="0.25 0.25 0.25 1"/>
     <material name="orcahand_right/invisible" class="orcahand_right/" specular="0" shininess="0" rgba="1 1 1 0"/>
