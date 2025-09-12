@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Rubik's cube reorientation task for ORCA hand."""
+"""ORCA手的魔方重定向任务。"""
 
 from typing import Any, Dict, Optional, Union
 
@@ -30,7 +30,7 @@ from mujoco_playground._src.manipulation.orca_hand import orca_hand_constants as
 
 
 def default_config() -> config_dict.ConfigDict:
-  """Default configuration for ORCA hand rubik's cube reorientation."""
+  """ORCA手魔方重定向的默认配置。"""
   return config_dict.create(
       ctrl_dt=0.05,
       sim_dt=0.01,
@@ -75,7 +75,7 @@ def default_config() -> config_dict.ConfigDict:
 
 
 class RubikReorient(orca_hand_base.OrcaHandEnv):
-  """Reorient a rubik's cube to match a goal orientation using ORCA hand."""
+  """使用ORCA手将魔方重新定向以匹配目标方向。"""
 
   def __init__(
       self,
@@ -90,15 +90,15 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     self._post_init()
 
   def _post_init(self) -> None:
-    """Post-initialization setup."""
-    # Get initial configuration from keyframe if available
+    """初始化后设置。"""
+    # 从关键帧获取初始配置（如果可用）
     try:
       home_key = self._mj_model.keyframe("home")
       self._init_q = jp.array(home_key.qpos, dtype=float)
       self._init_mpos = jp.array(home_key.mpos, dtype=float)
       self._init_mquat = jp.array(home_key.mquat, dtype=float)
     except:
-      # If no keyframe, use default values
+      # 如果没有关键帧，使用默认值
       self._init_q = jp.zeros(self._mj_model.nq)
       self._init_mpos = jp.zeros(3 * self._mj_model.nmocap)
       self._init_mquat = jp.array([1.0, 0.0, 0.0, 0.0])
@@ -108,11 +108,11 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     self._lowers = self._mj_model.actuator_ctrlrange[:, 0]
     self._uppers = self._mj_model.actuator_ctrlrange[:, 1]
     
-    # Get joint IDs for ORCA hand
+    # 获取ORCA手的关节ID
     self._hand_qids = mjx_env.get_qpos_ids(self.mj_model, consts.JOINT_NAMES)
     self._hand_dqids = mjx_env.get_qvel_ids(self.mj_model, consts.JOINT_NAMES)
     
-    # Get cube joint IDs (for the free joint)
+    # 获取魔方关节ID（用于自由关节）
     cube_joint_names = [
         "rubik-v1.50/cube_tx",
         "rubik-v1.50/cube_ty", 
@@ -121,21 +121,21 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     ]
     self._cube_qids = mjx_env.get_qpos_ids(self.mj_model, cube_joint_names)
     
-    # Get body and geom IDs
+    # 获取物体和几何体ID
     self._cube_body_id = self._mj_model.body("rubik-v1.50/middle").id
     self._cube_geom_id = self._mj_model.geom("rubik-v1.50/middle").id
     self._cube_mass = self._mj_model.body_subtreemass[self._cube_body_id]
     
-    # Default hand pose (neutral position)
+    # 默认手部姿态（中性位置）
     self._default_pose = jp.zeros(len(consts.JOINT_NAMES))
 
   def reset(self, rng: jax.Array) -> mjx_env.State:
-    """Reset the environment."""
-    # Randomize the goal orientation
+    """重置环境。"""
+    # 随机化目标方向
     rng, goal_rng = jax.random.split(rng)
     goal_quat = orca_hand_base.uniform_quat(goal_rng)
 
-    # Randomize the hand pose slightly around default
+    # 在默认姿态附近略微随机化手部姿态
     rng, pos_rng, vel_rng = jax.random.split(rng, 3)
     q_hand = jp.clip(
         self._default_pose + 0.1 * jax.random.normal(pos_rng, (consts.NQ,)),
@@ -144,9 +144,9 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     )
     v_hand = 0.0 * jax.random.normal(vel_rng, (consts.NV,))
 
-    # Randomize the cube pose
+    # 随机化魔方姿态
     rng, p_rng, quat_rng = jax.random.split(rng, 3)
-    # Position cube in front of the hand
+    # 将魔方放置在手的前方
     start_pos = jp.array([1.0, 0.87, 0.255]) + jax.random.uniform(
         p_rng, (3,), minval=-0.01, maxval=0.01
     )
@@ -154,29 +154,29 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     q_cube = jp.array([*start_pos, *start_quat])
     v_cube = jp.zeros(6)
 
-    # Combine all joint positions and velocities
+    # 组合所有关节位置和速度
     qpos = jp.zeros(self._mj_model.nq)
     qpos = qpos.at[self._hand_qids].set(q_hand)
     qpos = qpos.at[self._cube_qids].set(q_cube)
     
     qvel = jp.zeros(self._mj_model.nv)
     qvel = qvel.at[self._hand_dqids].set(v_hand)
-    qvel = qvel.at[self._cube_qids[:6]].set(v_cube)  # Only first 6 for velocities
+    qvel = qvel.at[self._cube_qids[:6]].set(v_cube)  # 速度只用前6个
 
-    # Create initial data
+    # 创建初始数据
     data = mjx_env.make_data(
         self._mj_model,
         qpos=qpos,
         ctrl=q_hand,
         qvel=qvel,
-        mocap_pos=self._init_mpos,
-        mocap_quat=goal_quat if self._mj_model.nmocap > 0 else jp.array([]),
+        mocap_pos=self._init_mpos if self._mj_model.nmocap > 0 else None,
+        mocap_quat=jp.array([goal_quat]) if self._mj_model.nmocap > 0 else None,
         impl=self._mjx_model.impl.value,
         nconmax=self._config.nconmax,
         njmax=self._config.njmax,
     )
 
-    # Initialize perturbation parameters
+    # 初始化扰动参数
     rng, pert1, pert2, pert3 = jax.random.split(rng, 4)
     pert_wait_steps = jax.random.randint(
         pert1,
@@ -202,7 +202,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     )
     pert_velocity = jp.array([pert_lin] * 3 + [pert_ang] * 3)
 
-    # Initialize info dictionary
+    # 初始化信息字典
     info = {
         "rng": rng,
         "step": 0,
@@ -215,7 +215,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
         "cube_pos_error_history": jp.zeros(self._config.history_len * 3),
         "cube_ori_error_history": jp.zeros(self._config.history_len * 6),
         "goal_quat_dquat": jp.zeros(3),
-        # Perturbation
+        # 扰动
         "pert_wait_steps": pert_wait_steps,
         "pert_duration_steps": pert_duration_steps,
         "pert_vel": pert_velocity,
@@ -223,7 +223,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
         "last_pert_step": jp.array([-jp.inf], dtype=float),
     }
 
-    # Initialize metrics
+    # 初始化指标
     metrics = {}
     for k in self._config.reward_config.scales.keys():
       metrics[f"reward/{k}"] = jp.zeros(())
@@ -236,11 +236,11 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     return mjx_env.State(data, obs, reward, done, metrics, info)
 
   def step(self, state: mjx_env.State, action: jax.Array) -> mjx_env.State:
-    """Step the environment."""
+    """执行一步环境仿真。"""
     if self._config.pert_config.enable:
       state = self._maybe_apply_perturbation(state, state.info["rng"])
 
-    # Apply control and step the physics
+    # 应用控制并执行物理仿真步骤
     delta = action * self._config.action_scale
     motor_targets = state.data.ctrl + delta
     motor_targets = jp.clip(motor_targets, self._lowers, self._uppers)
@@ -254,7 +254,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     )
     state.info["motor_targets"] = motor_targets
 
-    # Check for success
+    # 检查是否成功
     ori_error = self._cube_orientation_error(data)
     success = ori_error < self._config.success_threshold
     state.info["steps_since_last_success"] = jp.where(
@@ -271,33 +271,41 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     done = self._get_termination(data, state.info)
     obs = self._get_obs(data, state.info)
 
-    # Calculate rewards
+    # 计算奖励
     rewards = self._get_reward(data, action, state.info, state.metrics, done)
     rewards = {
         k: v * self._config.reward_config.scales[k] for k, v in rewards.items()
     }
     reward = sum(rewards.values()) * self.dt
 
-    # Sample a new goal orientation on success
+    # 成功时采样新的目标方向
     state.info["rng"], goal_rng = jax.random.split(state.info["rng"])
-    state.info["goal_quat_dquat"] = jp.where(
+    
+    # 成功时生成新的随机目标四元数
+    new_goal_quat = orca_hand_base.uniform_quat(goal_rng)
+    current_goal_quat = self.get_cube_goal_orientation(data)
+    
+    # 更新目标四元数：成功时使用新的随机目标，否则保持当前目标
+    updated_goal_quat = jp.where(
         success,
-        3 + jax.random.uniform(goal_rng, (3,), minval=-2, maxval=2),
-        state.info["goal_quat_dquat"] * 0.8,
+        new_goal_quat,
+        current_goal_quat
     )
     
     if self._mj_model.nmocap > 0:
-      goal_quat = math.quat_integrate(
-          state.data.mocap_quat[0],
-          state.info["goal_quat_dquat"],
-          2 * jp.array(self.dt),
-      )
-      data = data.replace(mocap_quat=jp.array([goal_quat]))
+      data = data.replace(mocap_quat=jp.array([updated_goal_quat]))
+    
+    # 更新goal_quat_dquat以实现平滑过渡（可选，供未来使用）
+    state.info["goal_quat_dquat"] = jp.where(
+        success,
+        jp.zeros(3),  # 成功时重置为零
+        state.info["goal_quat_dquat"] * 0.8,  # 随时间衰减
+    )
     
     state.metrics["reward/success"] = success.astype(float)
     reward += success * self._config.reward_config.success_reward
 
-    # Update info and metrics
+    # 更新信息和指标
     state.info["step"] += 1
     state.info["last_last_act"] = state.info["last_act"]
     state.info["last_act"] = action
@@ -309,9 +317,9 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     return state
 
   def _get_termination(self, data: mjx.Data, info: dict[str, Any]) -> jax.Array:
-    """Check termination conditions."""
-    del info  # Unused
-    # Terminate if cube falls below a certain height
+    """检查终止条件。"""
+    del info  # 未使用
+    # 如果魔方下落到某个高度以下则终止
     fall_termination = self.get_cube_position(data)[2] < 0.1
     nans = jp.any(jp.isnan(data.qpos)) | jp.any(jp.isnan(data.qvel))
     return fall_termination | nans
@@ -319,8 +327,8 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
   def _get_obs(
       self, data: mjx.Data, info: dict[str, Any]
   ) -> mjx_env.Observation:
-    """Get observation."""
-    # Hand joint angles
+    """获取观测值。"""
+    # 手部关节角度
     joint_angles = data.qpos[self._hand_qids]
     info["rng"], noise_rng = jax.random.split(info["rng"])
     noisy_joint_angles = (
@@ -330,7 +338,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
         * self._config.obs_noise.scales.joint_pos
     )
 
-    # Joint position error history
+    # 关节位置误差历史
     qpos_error_history = (
         jp.roll(info["qpos_error_history"], consts.NQ)
         .at[:consts.NQ]
@@ -339,7 +347,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     info["qpos_error_history"] = qpos_error_history
 
     def _get_cube_pose(data: mjx.Data) -> jax.Array:
-      """Returns (potentially) noisy cube pose (xyz,wxyz)."""
+      """返回（可能包含噪声的）魔方姿态(xyz,wxyz)。"""
       cube_pos = self.get_cube_position(data)
       cube_quat = self.get_cube_orientation(data)
       info["rng"], pos_rng, ori_rng = jax.random.split(info["rng"], 3)
@@ -357,7 +365,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
       )
       return jp.concatenate([noisy_cube_pos, noisy_cube_quat])
 
-    # Noisy cube pose
+    # 包含噪声的魔方姿态
     noisy_pose = _get_cube_pose(data)
     info["rng"], key1, key2, key3 = jax.random.split(info["rng"], 4)
     rand_quat = orca_hand_base.uniform_quat(key1)
@@ -368,7 +376,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     )
     noisy_pose = noisy_pose * (1 - m) + rand_pose * m
 
-    # Cube position error history
+    # 魔方位置误差历史
     palm_pos = self.get_palm_position(data)
     cube_pos_error = palm_pos - noisy_pose[:3]
     cube_pos_error_history = (
@@ -376,7 +384,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     )
     info["cube_pos_error_history"] = cube_pos_error_history
 
-    # Cube orientation error history
+    # 魔方方向误差历史
     goal_quat = self.get_cube_goal_orientation(data)
     quat_diff = mjx._src.math.quat_mul(
         noisy_pose[3:], mjx._src.math.quat_inv(goal_quat)
@@ -387,7 +395,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     )
     info["cube_ori_error_history"] = cube_ori_error_history
 
-    # Uncorrupted cube pose for critic
+    # 用于评价器的无损魔方姿态
     cube_pos_error_uncorrupted = palm_pos - self.get_cube_position(data)
     cube_quat_uncorrupted = self.get_cube_orientation(data)
     quat_diff_uncorrupted = math.quat_mul(
@@ -421,7 +429,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
         "privileged_state": privileged_state,
     }
 
-  # Reward terms
+  # 奖励项
 
   def _get_reward(
       self,
@@ -431,8 +439,8 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
       metrics: dict[str, Any],
       done: jax.Array,
   ) -> dict[str, jax.Array]:
-    """Calculate reward components."""
-    del done, metrics  # Unused
+    """计算奖励组件。"""
+    del done, metrics  # 未使用
 
     cube_pos = self.get_cube_position(data)
     palm_pos = self.get_palm_position(data)
@@ -464,11 +472,11 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
   def _cost_energy(
       self, qvel: jax.Array, qfrc_actuator: jax.Array
   ) -> jax.Array:
-    """Energy cost based on joint velocities and actuator forces."""
+    """基于关节速度和执行器力的能量成本。"""
     return jp.sum(jp.abs(qvel) * jp.abs(qfrc_actuator))
 
   def _cube_orientation_error(self, data: mjx.Data) -> jax.Array:
-    """Calculate cube orientation error."""
+    """计算魔方方向误差。"""
     cube_ori = self.get_cube_orientation(data)
     cube_goal_ori = self.get_cube_goal_orientation(data)
     quat_diff = math.quat_mul(cube_ori, math.quat_inv(cube_goal_ori))
@@ -476,31 +484,31 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     return 2.0 * jp.asin(jp.clip(math.norm(quat_diff[1:]), a_max=1.0))
 
   def _reward_cube_orientation(self, data: mjx.Data) -> jax.Array:
-    """Reward for cube orientation."""
+    """魔方方向奖励。"""
     ori_error = self._cube_orientation_error(data)
     return reward.tolerance(ori_error, (0, 0.2), margin=jp.pi, sigmoid="linear")
 
   def _cost_action_rate(
       self, act: jax.Array, last_act: jax.Array, last_last_act: jax.Array
   ) -> jax.Array:
-    """Action rate cost to encourage smooth actions."""
+    """动作变化率成本，鼓励平滑的动作。"""
     c1 = jp.sum(jp.square(act - last_act))
     c2 = jp.sum(jp.square(act - 2 * last_act + last_last_act))
     return c1 + c2
 
   def _cost_joint_vel(self, data: mjx.Data) -> jax.Array:
-    """Joint velocity cost."""
+    """关节速度成本。"""
     max_velocity = 5.0
     vel_tolerance = 1.0
     hand_qvel = data.qvel[self._hand_dqids]
     return jp.sum((hand_qvel / (max_velocity - vel_tolerance)) ** 2)
 
-  # Perturbation
+  # 扰动
 
   def _maybe_apply_perturbation(
       self, state: mjx_env.State, rng: jax.Array
   ) -> mjx_env.State:
-    """Apply perturbation to the cube if enabled."""
+    """如果启用，对魔方应用扰动。"""
     def gen_dir(rng: jax.Array) -> jax.Array:
       directory = jax.random.normal(rng, (6,))
       return directory / jp.linalg.norm(directory)
@@ -521,7 +529,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
 
     step, last_pert_step = state.info["step"], state.info["last_pert_step"]
     start_pert = jp.mod(step, state.info["pert_wait_steps"]) == 0
-    start_pert &= step != 0  # No perturbation at the beginning of the episode
+    start_pert &= step != 0  # 在回合开始时不进行扰动
     last_pert_step = jp.where(start_pert, step, last_pert_step)
     duration = jp.clip(step - last_pert_step, 0, 100_000)
     in_pert_interval = duration < state.info["pert_duration_steps"]
@@ -536,13 +544,13 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
 
 
 def domain_randomize(model: mjx.Model, rng: jax.Array):
-  """Domain randomization for ORCA hand rubik's cube task."""
+  """ORCA手魔方任务的领域随机化。"""
   mj_model = RubikReorient().mj_model
   cube_geom_id = mj_model.geom("rubik-v1.50/middle").id
   cube_body_id = mj_model.body("rubik-v1.50/middle").id
   hand_qids = mjx_env.get_qpos_ids(mj_model, consts.JOINT_NAMES)
   
-  # Get hand body names (simplified for ORCA hand)
+  # 获取手部物体名称（针对ORCA手简化）
   hand_body_names = [
       "orcahand_right/right_palm",
       "orcahand_right/right_thumb_mp",
@@ -568,7 +576,7 @@ def domain_randomize(model: mjx.Model, rng: jax.Array):
   def rand(rng):
     rng, key = jax.random.split(rng)
     
-    # Scale cube mass: *U(0.8, 1.2)
+    # 缩放魔方质量：*U(0.8, 1.2)
     rng, key1, key2 = jax.random.split(rng, 3)
     dmass = jax.random.uniform(key1, minval=0.8, maxval=1.2)
     body_inertia = model.body_inertia.at[cube_body_id].set(
@@ -579,7 +587,7 @@ def domain_randomize(model: mjx.Model, rng: jax.Array):
         model.body_ipos[cube_body_id] + dpos
     )
 
-    # Jitter qpos0: +U(-0.05, 0.05)
+    # 抖动qpos0：+U(-0.05, 0.05)
     rng, key = jax.random.split(rng)
     qpos0 = model.qpos0
     qpos0 = qpos0.at[hand_qids].set(
@@ -587,21 +595,21 @@ def domain_randomize(model: mjx.Model, rng: jax.Array):
         + jax.random.uniform(key, shape=(consts.NQ,), minval=-0.05, maxval=0.05)
     )
 
-    # Scale static friction: *U(0.9, 1.1)
+    # 缩放静摩擦：*U(0.9, 1.1)
     rng, key = jax.random.split(rng)
     frictionloss = model.dof_frictionloss[hand_qids] * jax.random.uniform(
         key, shape=(consts.NQ,), minval=0.5, maxval=2.0
     )
     dof_frictionloss = model.dof_frictionloss.at[hand_qids].set(frictionloss)
 
-    # Scale armature: *U(1.0, 1.05)
+    # 缩放电枢：*U(1.0, 1.05)
     rng, key = jax.random.split(rng)
     armature = model.dof_armature[hand_qids] * jax.random.uniform(
         key, shape=(consts.NQ,), minval=1.0, maxval=1.05
     )
     dof_armature = model.dof_armature.at[hand_qids].set(armature)
 
-    # Scale all link masses: *U(0.9, 1.1)
+    # 缩放所有连杆质量：*U(0.9, 1.1)
     rng, key = jax.random.split(rng)
     dmass = jax.random.uniform(
         key, shape=(len(hand_body_ids),), minval=0.9, maxval=1.1
@@ -610,7 +618,7 @@ def domain_randomize(model: mjx.Model, rng: jax.Array):
         model.body_mass[hand_body_ids] * dmass
     )
 
-    # Joint stiffness: *U(0.8, 1.2)
+    # 关节刚度：*U(0.8, 1.2)
     rng, key = jax.random.split(rng)
     kp = model.actuator_gainprm[:, 0] * jax.random.uniform(
         key, (model.nu,), minval=0.8, maxval=1.2
@@ -618,7 +626,7 @@ def domain_randomize(model: mjx.Model, rng: jax.Array):
     actuator_gainprm = model.actuator_gainprm.at[:, 0].set(kp)
     actuator_biasprm = model.actuator_biasprm.at[:, 1].set(-kp)
 
-    # Joint damping: *U(0.8, 1.2)
+    # 关节阻尼：*U(0.8, 1.2)
     rng, key = jax.random.split(rng)
     kd = model.dof_damping[hand_qids] * jax.random.uniform(
         key, (consts.NQ,), minval=0.8, maxval=1.2

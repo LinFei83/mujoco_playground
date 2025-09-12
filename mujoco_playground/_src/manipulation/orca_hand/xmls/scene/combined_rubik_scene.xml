@@ -113,6 +113,11 @@
         <site name="rubik-v1.50_1/center" class="rubik-v1.50_1/" rgba="1 0 0 1" size="0.01 0.01 0.01" pos="0 0 0"/>
       </body>
     </body>
+    <body name="goal_cube" mocap="true" pos="1 0.87 0.40000000000000002">
+      <geom name="goal_cube_geom" type="box" size="0.028500000000000001 0.028500000000000001 0.028500000000000001" 
+            rgba="0 1 0 0.4" contype="0" conaffinity="0" material="rubik-v1.50_1/MatRubik"/>
+      <site name="goal_center" rgba="0 1 0 1" size="0.005 0.005 0.005" pos="0 0 0"/>
+    </body>
     <body name="unnamed_model/">
       <body name="unnamed_model/floor" pos="1 1 0">
         <geom name="unnamed_model/floor" class="unnamed_model/" type="plane" condim="3" size="1 1 1" pos="0 0 0"/>
