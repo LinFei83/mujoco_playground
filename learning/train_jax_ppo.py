@@ -39,6 +39,8 @@ from mujoco_playground import wrapper
 from mujoco_playground.config import dm_control_suite_params
 from mujoco_playground.config import locomotion_params
 from mujoco_playground.config import manipulation_params
+import psutil
+import subprocess
 import tensorboardX
 import wandb
 
@@ -217,13 +219,34 @@ def main(argv):
   """在指定环境中运行训练和评估。"""
 
   del argv
+  
+  print("=== 开始训练流程调试 ===")
+  print(f"开始时间: {datetime.datetime.now()}")
+  print(f"环境名称: {_ENV_NAME.value}")
+  print("步骤 1: 加载环境配置...")
 
   # 加载环境配置
   env_cfg = registry.get_default_config(_ENV_NAME.value)
   env_cfg["impl"] = _IMPL.value
+  print("步骤 2: 环境配置加载完成")
+  print(f"环境配置: {env_cfg}")
 
   # 获取PPO算法参数
+  print("步骤 3: 获取PPO算法参数...")
   ppo_params = get_rl_config(_ENV_NAME.value)
+  print(f"PPO参数: {ppo_params}")
+  print(f"环境数量: {ppo_params.num_envs}")
+  print(f"批量大小: {ppo_params.batch_size}")
+  
+  # 检查系统资源
+  print(f"系统内存使用: {psutil.virtual_memory().percent:.1f}%")
+  print(f"可用内存: {psutil.virtual_memory().available / (1024**3):.1f} GB")
+  
+  # 检查配置是否可能导致内存问题
+  total_memory_estimate = ppo_params.num_envs * ppo_params.batch_size * 1000  # 粗略估算
+  if total_memory_estimate > 100_000_000:  # 100M
+    print(f"警告: 内存使用量可能很大 (估算: {total_memory_estimate:,})")
+    print("建议减少num_envs或batch_size")
 
   if _NUM_TIMESTEPS.present:
     ppo_params.num_timesteps = _NUM_TIMESTEPS.value
@@ -276,7 +299,27 @@ def main(argv):
   if _VISION.value:
     env_cfg.vision = True
     env_cfg.vision_config.render_batch_size = ppo_params.num_envs
+    print("步骤 4: 配置视觉输入...")
+  
+  print("步骤 5: 加载环境...")
+  print(f"GPU内存使用情况 (加载环境前):")
+  try:
+    result = subprocess.run(['nvidia-smi', '--query-gpu=memory.used,memory.total', '--format=csv,noheader,nounits'], 
+                          capture_output=True, text=True, timeout=5)
+    print(f"GPU内存: {result.stdout.strip()}")
+  except:
+    print("无法获取GPU内存信息")
+  
   env = registry.load(_ENV_NAME.value, config=env_cfg)
+  print("环境加载完成")
+  
+  print(f"GPU内存使用情况 (加载环境后):")
+  try:
+    result = subprocess.run(['nvidia-smi', '--query-gpu=memory.used,memory.total', '--format=csv,noheader,nounits'], 
+                          capture_output=True, text=True, timeout=5)
+    print(f"GPU内存: {result.stdout.strip()}")
+  except:
+    print("无法获取GPU内存信息")
   if _RUN_EVALS.present:
     ppo_params.run_evals = _RUN_EVALS.value
   if _LOG_TRAINING_METRICS.present:
@@ -362,7 +405,9 @@ def main(argv):
     )
 
   # 如果使用视觉输入，将环境包装为适合brax训练的形式
+  print("步骤 6: 环境包装...")
   if _VISION.value:
+    print("包装视觉环境...")
     env = wrapper.wrap_for_brax_training(
         env,
         vision=True,
@@ -371,6 +416,7 @@ def main(argv):
         action_repeat=ppo_params.action_repeat,
         randomization_fn=training_params.get("randomization_fn"),
     )
+    print("视觉环境包装完成")
 
   # 确定评估环境数量
   num_eval_envs = (
@@ -383,6 +429,10 @@ def main(argv):
     del training_params["num_eval_envs"]
 
   # 准备训练函数
+  print("步骤 7: 准备训练函数...")
+  print(f"训练参数: {training_params}")
+  print(f"评估环境数量: {num_eval_envs}")
+  
   train_fn = functools.partial(
       ppo.train,
       **training_params,
@@ -393,6 +443,7 @@ def main(argv):
       wrap_env_fn=None if _VISION.value else wrapper.wrap_for_brax_training,
       num_eval_envs=num_eval_envs,
   )
+  print("训练函数准备完成")
 
   # 记录训练时间
   times = [time.monotonic()]
@@ -400,6 +451,15 @@ def main(argv):
   # 用于日志记录的进度函数
   def progress(num_steps, metrics):
     times.append(time.monotonic())
+    
+    # 添加GPU内存监控
+    try:
+      result = subprocess.run(['nvidia-smi', '--query-gpu=memory.used,memory.total', '--format=csv,noheader,nounits'], 
+                            capture_output=True, text=True, timeout=2)
+      gpu_info = result.stdout.strip()
+      print(f"步骤 {num_steps}: GPU内存 {gpu_info}, 系统内存 {psutil.virtual_memory().percent:.1f}%")
+    except:
+      print(f"步骤 {num_steps}: 系统内存 {psutil.virtual_memory().percent:.1f}%")
 
     # 记录到Weights & Biases
     if _USE_WANDB.value and not _PLAY_ONLY.value:
@@ -459,12 +519,36 @@ def main(argv):
       rscope_handle.dump_rollout(params)
 
   # 训练或加载模型
-  make_inference_fn, params, _ = train_fn(  # pylint: disable=no-value-for-parameter
-      environment=env,
-      progress_fn=progress,
-      policy_params_fn=policy_params_fn,
-      eval_env=eval_env,
-  )
+  print("步骤 8: 开始训练...")
+  print(f"GPU内存使用情况 (训练开始前):")
+  try:
+    result = subprocess.run(['nvidia-smi', '--query-gpu=memory.used,memory.total', '--format=csv,noheader,nounits'], 
+                          capture_output=True, text=True, timeout=5)
+    print(f"GPU内存: {result.stdout.strip()}")
+  except:
+    print("无法获取GPU内存信息")
+  
+  print("开始调用train_fn...")
+  
+  try:
+    make_inference_fn, params, _ = train_fn(  # pylint: disable=no-value-for-parameter
+        environment=env,
+        progress_fn=progress,
+        policy_params_fn=policy_params_fn,
+        eval_env=eval_env,
+    )
+    print("train_fn调用完成")
+  except Exception as e:
+    print(f"训练过程中出现错误: {type(e).__name__}: {e}")
+    print(f"GPU内存使用情况 (错误发生时):")
+    try:
+      result = subprocess.run(['nvidia-smi', '--query-gpu=memory.used,memory.total', '--format=csv,noheader,nounits'], 
+                            capture_output=True, text=True, timeout=5)
+      print(f"GPU内存: {result.stdout.strip()}")
+    except:
+      print("无法获取GPU内存信息")
+    print(f"系统内存: {psutil.virtual_memory().percent:.1f}%")
+    raise
 
   print("训练完成。")
   if len(times) > 1:

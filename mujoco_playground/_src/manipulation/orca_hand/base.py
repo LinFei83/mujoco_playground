@@ -78,19 +78,70 @@ class OrcaHandEnv(mjx_env.MjxEnv):
     # 将 MuJoCo 模型转换为 MJX 模型（GPU加速）
     # 转换 MuJoCo 模型为 MJX 模型
     print(f"开始将 MuJoCo 模型转换为 MJX 模型: {xml_path}")
-    print(f"模型统计信息 - Bodies: {self._mj_model.nbody}, "
-          f"Joints: {self._mj_model.njnt}, "
-          f"Actuators: {self._mj_model.nu}, "
-          f"Implementation: {self._config.impl}")
-    
     self._mjx_model = mjx.put_model(self._mj_model, impl=self._config.impl)
-    
     print("✅ MJX 模型转换成功完成!")
-    print(f"MJX 模型信息 - DOF: {self._mjx_model.nq}, "
-          f"Velocities: {self._mjx_model.nv}, "
-          f"Controls: {self._mjx_model.nu}")
-    print(f"JAX 设备: {self._mjx_model.impl}")
     self._xml_path = xml_path
+    
+    # 可选：预览模型以检查场景设置
+    self._preview_model_if_enabled()
+
+  def _preview_model_if_enabled(self) -> None:
+    """如果启用了预览模式，则显示模型的可视化预览。
+    
+    可以通过环境变量 MUJOCO_PREVIEW_MODEL=1 来启用预览功能。
+    预览窗口将显示初始场景状态，帮助检查模型是否正确加载。
+    """
+    import os
+    if not os.getenv('MUJOCO_PREVIEW_MODEL', '0').lower() in ('1', 'true', 'yes'):
+      return
+      
+    try:
+      import mujoco.viewer as viewer
+      
+      # 创建初始数据状态用于预览
+      mj_data = mujoco.MjData(self._mj_model)
+      
+      # 设置到默认关键帧状态（如果存在）
+      try:
+        home_key = self._mj_model.keyframe("home")
+        mj_data.qpos[:] = home_key.qpos
+        mj_data.ctrl[:] = home_key.qpos[:self._mj_model.nu]  # 设置控制输入
+        if self._mj_model.nmocap > 0:
+          mj_data.mocap_pos[:] = home_key.mpos.reshape(-1, 3)
+          mj_data.mocap_quat[:] = home_key.mquat.reshape(-1, 4)
+      except:
+        # 如果没有关键帧，使用默认初始状态
+        mujoco.mj_resetData(self._mj_model, mj_data)
+        
+      # 执行一次前向动力学确保状态一致
+      mujoco.mj_forward(self._mj_model, mj_data)
+      
+      print("🎯 预览窗口已打开，请检查场景设置...")
+      print("   按 ENTER 键或关闭窗口继续训练...")
+      
+      # 启动交互式查看器
+      with viewer.launch_passive(self._mj_model, mj_data) as viewer_handle:
+        # 设置相机视角到合适位置
+        viewer_handle.cam.azimuth = 45
+        viewer_handle.cam.elevation = -20
+        viewer_handle.cam.distance = 1.5
+        viewer_handle.cam.lookat[:] = [1.0, 0.87, 0.3]  # 聚焦到手部和魔方区域
+        
+        # 等待用户输入或窗口关闭
+        try:
+          print("⏸️  程序已暂停，请在预览窗口中检查场景...")
+          input("   检查完成后，请按 ENTER 键继续训练: ")
+        except KeyboardInterrupt:
+          print("\n⚠️  用户中断预览")
+        
+        print("✅ 预览完成，继续初始化...")
+        
+    except ImportError:
+      print("⚠️  无法导入 mujoco.viewer，跳过模型预览")
+      print("   如需预览功能，请确保安装了完整的 MuJoCo 包")
+    except Exception as e:
+      print(f"⚠️  模型预览时出现错误: {e}")
+      print("   继续正常初始化...")
 
   # 魔方的传感器读取方法
 

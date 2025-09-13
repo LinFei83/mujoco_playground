@@ -116,6 +116,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     self._default_pose = jp.zeros(len(consts.JOINT_NAMES))
 
   def reset(self, rng: jax.Array) -> mjx_env.State:
+    jax.debug.print("OrcaRubikReorient: 执行reset操作")
     """重置环境。"""
     # 随机化目标方向
     rng, goal_rng = jax.random.split(rng)

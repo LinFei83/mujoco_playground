@@ -106,6 +106,7 @@ class CubeReorient(leap_hand_base.LeapHandEnv):
 
   def reset(self, rng: jax.Array) -> mjx_env.State:
     # Randomize the goal orientation.
+    print("LeapCubeReorient: 执行reset操作")
     rng, goal_rng = jax.random.split(rng)
     goal_quat = leap_hand_base.uniform_quat(goal_rng)
 
