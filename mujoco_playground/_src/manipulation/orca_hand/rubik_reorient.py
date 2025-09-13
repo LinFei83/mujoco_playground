@@ -55,7 +55,7 @@ def default_config() -> config_dict.ConfigDict:
           pert_wait_steps=[60, 150],
       ),
       impl='jax',
-      nconmax=30 * 2048,
+      nconmax=30 * 1024, # 接触约束
       njmax=128,
   )
 
@@ -116,28 +116,17 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     self._default_pose = jp.zeros(len(consts.JOINT_NAMES))
 
   def reset(self, rng: jax.Array) -> mjx_env.State:
-    jax.debug.print("OrcaRubikReorient: 执行reset操作")
-    """重置环境。"""
-    # 随机化目标方向
-    rng, goal_rng = jax.random.split(rng)
-    goal_quat = orca_hand_base.uniform_quat(goal_rng)
+    """重置环境到初始状态。"""
+    # 使用固定的目标方向（单位四元数，无旋转）
+    goal_quat = jp.array([1.0, 0.0, 0.0, 0.0])
 
-    # 在默认姿态附近略微随机化手部姿态
-    rng, pos_rng, vel_rng = jax.random.split(rng, 3)
-    q_hand = jp.clip(
-        self._default_pose + 0.1 * jax.random.normal(pos_rng, (consts.NQ,)),
-        self._lowers,
-        self._uppers,
-    )
-    v_hand = 0.0 * jax.random.normal(vel_rng, (consts.NV,))
+    # 使用默认手部姿态
+    q_hand = self._default_pose
+    v_hand = jp.zeros(consts.NV)
 
-    # 随机化魔方姿态
-    rng, p_rng, quat_rng = jax.random.split(rng, 3)
-    # 将魔方放置在手的前方
-    start_pos = jp.array([1.0, 0.87, 0.255]) + jax.random.uniform(
-        p_rng, (3,), minval=-0.01, maxval=0.01
-    )
-    start_quat = orca_hand_base.uniform_quat(quat_rng)
+    # 将魔方放置在手的前方的固定位置
+    start_pos = jp.array([1.0, 0.87, 0.255])
+    start_quat = jp.array([1.0, 0.0, 0.0, 0.0])  # 无旋转
     q_cube = jp.array([*start_pos, *start_quat])
     v_cube = jp.zeros(6)
 
@@ -148,7 +137,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     
     qvel = jp.zeros(self._mj_model.nv)
     qvel = qvel.at[self._hand_dqids].set(v_hand)
-    qvel = qvel.at[self._cube_qids[:6]].set(v_cube)  # 速度只用前6个
+    qvel = qvel.at[self._cube_qids[:6]].set(v_cube)
 
     # 创建初始数据
     data = mjx_env.make_data(
@@ -163,33 +152,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
         njmax=self._config.njmax,
     )
 
-    # 初始化扰动参数
-    rng, pert1, pert2, pert3 = jax.random.split(rng, 4)
-    pert_wait_steps = jax.random.randint(
-        pert1,
-        (1,),
-        minval=self._config.pert_config.pert_wait_steps[0],
-        maxval=self._config.pert_config.pert_wait_steps[1],
-    )
-    pert_duration_steps = jax.random.randint(
-        pert2,
-        (1,),
-        minval=self._config.pert_config.pert_duration_steps[0],
-        maxval=self._config.pert_config.pert_duration_steps[1],
-    )
-    pert_lin = jax.random.uniform(
-        pert3,
-        minval=self._config.pert_config.linear_velocity_pert[0],
-        maxval=self._config.pert_config.linear_velocity_pert[1],
-    )
-    pert_ang = jax.random.uniform(
-        pert3,
-        minval=self._config.pert_config.angular_velocity_pert[0],
-        maxval=self._config.pert_config.angular_velocity_pert[1],
-    )
-    pert_velocity = jp.array([pert_lin] * 3 + [pert_ang] * 3)
-
-    # 初始化信息字典
+    # 初始化信息字典（简化版）
     info = {
         "rng": rng,
         "step": 0,
@@ -202,10 +165,10 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
         "cube_pos_error_history": jp.zeros(self._config.history_len * 3),
         "cube_ori_error_history": jp.zeros(self._config.history_len * 6),
         "goal_quat_dquat": jp.zeros(3),
-        # 扰动
-        "pert_wait_steps": pert_wait_steps,
-        "pert_duration_steps": pert_duration_steps,
-        "pert_vel": pert_velocity,
+        # 扰动相关（保持结构但不使用）
+        "pert_wait_steps": jp.array([1000]),  # 设置很大的值避免扰动
+        "pert_duration_steps": jp.array([1]),
+        "pert_vel": jp.zeros(6),
         "pert_dir": jp.zeros(6, dtype=float),
         "last_pert_step": jp.array([-jp.inf], dtype=float),
     }
@@ -265,29 +228,12 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     }
     reward = sum(rewards.values()) * self.dt
 
-    # 成功时采样新的目标方向
-    state.info["rng"], goal_rng = jax.random.split(state.info["rng"])
-    
-    # 成功时生成新的随机目标四元数
-    new_goal_quat = orca_hand_base.uniform_quat(goal_rng)
-    current_goal_quat = self.get_cube_goal_orientation(data)
-    
-    # 更新目标四元数：成功时使用新的随机目标，否则保持当前目标
-    updated_goal_quat = jp.where(
-        success,
-        new_goal_quat,
-        current_goal_quat
-    )
+    # 保持固定的目标方向（不进行随机化）
+    # 目标始终是单位四元数（无旋转）
+    fixed_goal_quat = jp.array([1.0, 0.0, 0.0, 0.0])
     
     if self._mj_model.nmocap > 0:
-      data = data.replace(mocap_quat=jp.array([updated_goal_quat]))
-    
-    # 更新goal_quat_dquat以实现平滑过渡（可选，供未来使用）
-    state.info["goal_quat_dquat"] = jp.where(
-        success,
-        jp.zeros(3),  # 成功时重置为零
-        state.info["goal_quat_dquat"] * 0.8,  # 随时间衰减
-    )
+      data = data.replace(mocap_quat=jp.array([fixed_goal_quat]))
     
     state.metrics["reward/success"] = success.astype(float)
     reward += success * self._config.reward_config.success_reward
