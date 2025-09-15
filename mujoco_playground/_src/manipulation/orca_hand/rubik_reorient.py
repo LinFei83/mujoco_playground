@@ -55,7 +55,7 @@ def default_config() -> config_dict.ConfigDict:
           pert_wait_steps=[60, 150],
       ),
       impl='jax',
-      nconmax=30 * 1024, # 接触约束
+      nconmax=60 * 1024, # 接触约束 - 增加以适应复杂模型
       njmax=128,
   )
 
@@ -117,6 +117,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
 
   def reset(self, rng: jax.Array) -> mjx_env.State:
     """重置环境到初始状态。"""
+    print("RubikReorient: 执行reset操作")
     # 使用固定的目标方向（单位四元数，无旋转）
     goal_quat = jp.array([1.0, 0.0, 0.0, 0.0])
 

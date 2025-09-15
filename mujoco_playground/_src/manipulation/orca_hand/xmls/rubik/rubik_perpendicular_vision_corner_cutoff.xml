@@ -39,7 +39,7 @@
     <!-- Asset part -->
     <asset>
         <material name="cubelet_material" specular="1" shininess=".3" rgba="0 0 0 1" />
-        <mesh name="rounded_cube" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/stls/rounded_cubelet_4.stl" />
+        <mesh name="rounded_cube" file="/home/lf/project/Emulation/mujoco/reference/mujoco_playground/mujoco_playground/_src/manipulation/orca_hand/xmls/stls/rounded_cubelet.stl" />
         <!-- sticker -->
         <material name="sticker_R" specular=".3" shininess="0.3" rgba="0.3843137254901961 0.09411764705882353 0.03529411764705882 1" />
         <material name="sticker_O" specular=".3" shininess="0.3" rgba="0.5137254901960784 0.2823529411764706 0.01568627450980392 1" />
