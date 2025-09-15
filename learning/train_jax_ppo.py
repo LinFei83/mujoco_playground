@@ -452,6 +452,10 @@ def main(argv):
   def progress(num_steps, metrics):
     times.append(time.monotonic())
     
+    # 检测JIT编译完成（第一次调用progress函数时）
+    if len(times) == 2:
+      print(f"JIT编译已完成，耗时: {times[1] - times[0]:.2f}秒")
+    
     # 添加GPU内存监控
     try:
       result = subprocess.run(['nvidia-smi', '--query-gpu=memory.used,memory.total', '--format=csv,noheader,nounits'], 
