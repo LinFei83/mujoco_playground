@@ -17,7 +17,8 @@
 from mujoco_playground._src import mjx_env
 
 ROOT_PATH = mjx_env.ROOT_PATH / "manipulation" / "orca_hand"
-RUBIK_SCENE_XML = ROOT_PATH / "xmls" / "scene" / "combined_rubik_scene.xml"
+# RUBIK_SCENE_XML = ROOT_PATH / "xmls" / "scene" / "combined_rubik_scene.xml"
+RUBIK_SCENE_XML = ROOT_PATH / "xmls" / "convex" / "combined_rubik_scene.xml"
 
 # Based on the combined_rubik_scene analysis
 NQ = 17  # 17 joints (1 wrist + 16 finger joints)

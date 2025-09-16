@@ -55,7 +55,7 @@ def default_config() -> config_dict.ConfigDict:
           pert_wait_steps=[60, 150],
       ),
       impl='jax',
-      nconmax=60 * 1024, # 接触约束 - 增加以适应复杂模型
+      nconmax=30 * 1024, # 接触约束
       njmax=128,
   )
 

@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="combined_rubik_scene">
+  <compiler angle="radian" eulerseq="XYZ" />
+  <default>
+    <default class="/" />
+    <default class="rubik-v1.50/" />
+    <default class="rubik-v1.50_1/" />
+    <default class="orcahand_right/">
+      <mesh scale="0.001 0.001 0.001" />
+      <joint type="hinge" limited="true" margin="0.01" armature="0.001" damping="0.10000000000000001" frictionloss="0.001" />
+      <position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2" />
+      <default class="orcahand_right/visual_base">
+        <geom type="mesh" contype="0" conaffinity="0" condim="1" group="2" />
+        <default class="orcahand_right/skin">
+          <geom material="orcahand_right/white" />
+        </default>
+        <default class="orcahand_right/bone">
+          <geom material="orcahand_right/black" />
+        </default>
+      </default>
+      <default class="orcahand_right/collision">
+        <geom type="mesh" contype="1" conaffinity="1" condim="3" group="1" material="orcahand_right/invisible" />
+      </default>
+    </default>
+    <default class="unnamed_model/" />
+  </default>
+  <asset>
+    <texture name="rubik-v1.50/rubik" file="/home/lf/project/Emulation/mujoco/assets/rubik/cube/rubik.png" gridsize="3 4" gridlayout=".U..LFRB.D.." />
+    <material name="rubik-v1.50/MatRubik" class="rubik-v1.50/" texture="rubik-v1.50/rubik" specular="1" shininess="0.29999999999999999" reflectance="0" />
+    <texture name="rubik-v1.50_1/rubik" file="/home/lf/project/Emulation/mujoco/assets/rubik/cube/rubik.png" gridsize="3 4" gridlayout=".U..LFRB.D.." />
+    <material name="rubik-v1.50_1/MatRubik" class="rubik-v1.50_1/" texture="rubik-v1.50_1/rubik" specular="1" shininess="0.29999999999999999" reflectance="0" />
+    <mesh name="orcahand_right/right_visual_tower_main_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_tower_main.stl" />
+    <mesh name="orcahand_right/right_visual_tower_hull_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_tower_hull.stl" />
+    <mesh name="orcahand_right/right_visual_tower_text_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_tower_text.stl" />
+    <mesh name="orcahand_right/right_visual_palm_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_palm.stl" />
+    <mesh name="orcahand_right/right_visual_thumb_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_mp.stl" />
+    <mesh name="orcahand_right/right_visual_thumb_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_pp.stl" />
+    <mesh name="orcahand_right/right_visual_thumb_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_ip.stl" />
+    <mesh name="orcahand_right/right_visual_thumb_dp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_dp.stl" />
+    <mesh name="orcahand_right/right_visual_index_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_index_mp.stl" />
+    <mesh name="orcahand_right/right_visual_index_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_index_pp.stl" />
+    <mesh name="orcahand_right/right_visual_index_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_index_ip.stl" />
+    <mesh name="orcahand_right/right_visual_middle_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_middle_mp.stl" />
+    <mesh name="orcahand_right/right_visual_middle_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_middle_pp.stl" />
+    <mesh name="orcahand_right/right_visual_middle_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_middle_ip.stl" />
+    <mesh name="orcahand_right/right_visual_ring_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_ring_mp.stl" />
+    <mesh name="orcahand_right/right_visual_ring_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_ring_pp.stl" />
+    <mesh name="orcahand_right/right_visual_ring_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_ring_ip.stl" />
+    <mesh name="orcahand_right/right_visual_pinky_mp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_mp.stl" />
+    <mesh name="orcahand_right/right_visual_pinky_pp_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_pp.stl" />
+    <mesh name="orcahand_right/right_visual_pinky_ip_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_ip.stl" />
+    <mesh name="orcahand_right/right_visual_palm_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_palm_skin.stl" />
+    <mesh name="orcahand_right/right_visual_thumb_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_ip_skin.stl" />
+    <mesh name="orcahand_right/right_visual_thumb_dp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_thumb_dp_skin.stl" />
+    <mesh name="orcahand_right/right_visual_index_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_index_pp_skin.stl" />
+    <mesh name="orcahand_right/right_visual_index_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_index_ip_skin.stl" />
+    <mesh name="orcahand_right/right_visual_middle_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_middle_pp_skin.stl" />
+    <mesh name="orcahand_right/right_visual_middle_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_middle_ip_skin.stl" />
+    <mesh name="orcahand_right/right_visual_ring_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_ring_pp_skin.stl" />
+    <mesh name="orcahand_right/right_visual_ring_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_ring_ip_skin.stl" />
+    <mesh name="orcahand_right/right_visual_pinky_pp_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_pp_skin.stl" />
+    <mesh name="orcahand_right/right_visual_pinky_ip_skin_mesh" class="orcahand_right/" file="/home/lf/project/Emulation/mujoco/assets/Dexterous_Hand/mjcf/right/visual/right_visual_pinky_ip_skin.stl" />
+    <material name="orcahand_right/white" class="orcahand_right/" specular="0.10000000000000001" shininess="0.5" rgba="1 1 1 1" />
+    <material name="orcahand_right/black" class="orcahand_right/" specular="0.050000000000000003" shininess="0.20000000000000001" rgba="0.25 0.25 0.25 1" />
+    <material name="orcahand_right/invisible" class="orcahand_right/" specular="0" shininess="0" rgba="1 1 1 0" />
+  <mesh name="orcahand_right/right_collision_tower_main_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_tower_main_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_tower_hull_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_tower_hull_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_tower_hull_mesh_001" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_tower_hull_mesh_001.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_tower_text_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_tower_text_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_tower_text_mesh_001" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_tower_text_mesh_001.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_palm_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_palm_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_thumb_mp_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_thumb_mp_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_thumb_pp_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_thumb_pp_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_thumb_ip_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_thumb_ip_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_thumb_dp_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_thumb_dp_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_index_mp_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_index_mp_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_index_pp_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_index_pp_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_index_ip_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_index_ip_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_middle_mp_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_middle_mp_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_middle_pp_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_middle_pp_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_middle_ip_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_middle_ip_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_ring_mp_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_ring_mp_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_ring_pp_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_ring_pp_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_ring_ip_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_ring_ip_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_pinky_mp_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_pinky_mp_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_pinky_pp_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_pinky_pp_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_pinky_ip_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_pinky_ip_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_palm_skin_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_palm_skin_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_thumb_ip_skin_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_thumb_ip_skin_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_thumb_dp_skin_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_thumb_dp_skin_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_index_pp_skin_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_index_pp_skin_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_index_ip_skin_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_index_ip_skin_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_middle_pp_skin_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_middle_pp_skin_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_middle_ip_skin_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_middle_ip_skin_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_ring_pp_skin_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_ring_pp_skin_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_ring_ip_skin_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_ring_ip_skin_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_pinky_pp_skin_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_pinky_pp_skin_mesh_000.stl" class="orcahand_right/" /><mesh name="orcahand_right/right_collision_pinky_ip_skin_mesh_000" file="/home/lf/project/Emulation/mujoco/temp/convex/orcahand_right/right_collision_pinky_ip_skin_mesh_000.stl" class="orcahand_right/" /></asset>
+  <worldbody>
+    <body name="rubik-v1.50/">
+      <body name="rubik-v1.50/middle" pos="1 0.87 0.255">
+        <geom name="rubik-v1.50/middle" class="rubik-v1.50/" type="box" condim="4" size="0.028500000000000001 0.028500000000000001 0.028500000000000001" material="rubik-v1.50/MatRubik" density="421" />
+        <site name="rubik-v1.50/center" class="rubik-v1.50/" rgba="1 0 0 1" size="0.01 0.01 0.01" pos="0 0 0" />
+        <joint name="rubik-v1.50/cube_tx" class="rubik-v1.50/" type="slide" axis="1 0 0" limited="false" />
+        <joint name="rubik-v1.50/cube_ty" class="rubik-v1.50/" type="slide" axis="0 1 0" limited="false" />
+        <joint name="rubik-v1.50/cube_tz" class="rubik-v1.50/" type="slide" axis="0 0 1" limited="false" />
+        <joint name="rubik-v1.50/cube_rot" class="rubik-v1.50/" type="ball" limited="false" />
+      </body>
+    </body>
+    <body name="rubik-v1.50_1/">
+      <body name="rubik-v1.50_1/middle" pos="1 0.87 0.40000000000000002">
+        <geom name="rubik-v1.50_1/middle" class="rubik-v1.50_1/" type="box" contype="0" conaffinity="0" condim="4" group="2" size="0.028500000000000001 0.028500000000000001 0.028500000000000001" material="rubik-v1.50_1/MatRubik" />
+        <site name="rubik-v1.50_1/center" class="rubik-v1.50_1/" rgba="1 0 0 1" size="0.01 0.01 0.01" pos="0 0 0" />
+      </body>
+    </body>
+    <body name="orcahand_right/">
+      <body name="orcahand_right/right_tower" pos="0.94499999999999995 1.075 0.14999999999999999" euler="1.5707963267948966 0 0">
+        <inertial pos="0.040340000000000001 -0.00091 0.019120000000000002" euler="-0.0026099999999999999 0.0073699999999999998 0.041450000000000001" mass="0.90000000000000002" diaginertia="0.0015042199999999999 0.0012526200000000001 0.00079619999999999995" />
+        <geom name="orcahand_right//unnamed_geom_0" class="orcahand_right/bone" mesh="orcahand_right/right_visual_tower_main_mesh" />
+        <geom name="orcahand_right//unnamed_geom_2" class="orcahand_right/bone" mesh="orcahand_right/right_visual_tower_hull_mesh" />
+        <geom name="orcahand_right//unnamed_geom_4" class="orcahand_right/skin" mesh="orcahand_right/right_visual_tower_text_mesh" />
+        <body name="orcahand_right/right_palm" pos="0.038629999999999998 0.0014400000000000001 0.14359" euler="0 0 0">
+          <inertial pos="0.0019300000000000001 -0.00051999999999999995 -0.0066400000000000001" euler="1.67519 0.047500000000000001 1.5555600000000001" mass="0.025700000000000001" diaginertia="1.6120000000000002e-05 1.151e-05 6.72e-06" />
+          <joint name="orcahand_right/right_wrist" class="orcahand_right/" pos="0.002 -0.0014400000000000001 -0.038719999999999997" axis="1 0 0" range="-0.67359999999999998 0.8972" ref="-0.14999999999999999" />
+          <geom name="orcahand_right//unnamed_geom_6" class="orcahand_right/bone" mesh="orcahand_right/right_visual_palm_mesh" />
+          <geom name="orcahand_right//unnamed_geom_8" class="orcahand_right/skin" mesh="orcahand_right/right_visual_palm_skin_mesh" />
+          <body name="orcahand_right/right_thumb_mp" pos="-0.028209999999999999 0.017770000000000001 -0.01321" euler="0.53856999999999999 -0.05595 -1.27047">
+            <inertial pos="0.00247 0 0.0040000000000000001" euler="0 0.016250000000000001 0" mass="0.0058599999999999998" diaginertia="8.4e-07 6.6000000000000003e-07 2.7000000000000001e-07" />
+            <joint name="orcahand_right/right_thumb_mcp" class="orcahand_right/" pos="0 0 0" axis="0 0 -1" range="-0.87265999999999999 0.87265999999999999" ref="0" />
+            <geom name="orcahand_right//unnamed_geom_10" class="orcahand_right/bone" mesh="orcahand_right/right_visual_thumb_mp_mesh" />
+            <body name="orcahand_right/right_thumb_pp" pos="-0.029999999999999999 0 0" euler="-1.22173 0 0">
+              <inertial pos="0.01848 1.0000000000000001e-05 2.0000000000000002e-05" euler="1.5708 0.77392000000000005 1.5708" mass="0.0065500000000000003" diaginertia="7.5000000000000002e-07 7.0999999999999998e-07 2.9999999999999999e-07" />
+              <joint name="orcahand_right/right_thumb_abd" class="orcahand_right/" pos="0.029999999999999999 0 0" axis="0 0.34201999999999999 0.93969000000000003" range="-1.0821099999999999 0" ref="-0.73304000000000002" />
+              <geom name="orcahand_right//unnamed_geom_12" class="orcahand_right/bone" mesh="orcahand_right/right_visual_thumb_pp_mesh" />
+              <body name="orcahand_right/right_thumb_ip" pos="0 0 0" euler="3.1415899999999999 1.5708 0">
+                <inertial pos="0.0013500000000000001 2.0000000000000002e-05 0.01383" euler="0.00036999999999999999 0.032629999999999999 0.00034000000000000002" mass="0.014019999999999999" diaginertia="1.7e-06 1.64e-06 5.8999999999999996e-07" />
+                <joint name="orcahand_right/right_thumb_pip" class="orcahand_right/" pos="0 0 0" axis="0 -1 0" range="-0.7944 1.23" ref="-0.58496000000000004" />
+                <geom name="orcahand_right//unnamed_geom_14" class="orcahand_right/bone" mesh="orcahand_right/right_visual_thumb_ip_mesh" />
+                <geom name="orcahand_right//unnamed_geom_16" class="orcahand_right/skin" mesh="orcahand_right/right_visual_thumb_ip_skin_mesh" />
+                <body name="orcahand_right/right_thumb_dp" pos="0.00050000000000000001 0 0.033000000000000002" euler="0 0 0">
+                  <inertial pos="0.00233 1.0000000000000001e-05 0.01133" euler="0.00075000000000000002 0.082110000000000002 0.00012999999999999999" mass="0.0132" diaginertia="1.3999999999999999e-06 1.37e-06 4.4000000000000002e-07" />
+                  <joint name="orcahand_right/right_thumb_dip" class="orcahand_right/" pos="0 0 0" axis="0 -1 0" range="-0.85384000000000004 1.45" ref="-0.50477000000000005" />
+                  <geom name="orcahand_right//unnamed_geom_18" class="orcahand_right/bone" mesh="orcahand_right/right_visual_thumb_dp_mesh" />
+                  <geom name="orcahand_right//unnamed_geom_20" class="orcahand_right/skin" pos="-0.0089999999999999993 0 -0.010999999999999999" euler="0 0.52000000000000002 0" mesh="orcahand_right/right_visual_thumb_dp_skin_mesh" />
+                  <geom name="orcahand_right//unnamed_geom_19_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_thumb_dp_mesh_000" /><geom name="orcahand_right//unnamed_geom_21_000" class="orcahand_right/collision" pos="-0.0089999999999999993 0 -0.010999999999999999" euler="0 0.52000000000000002 0" mesh="orcahand_right/right_collision_thumb_dp_skin_mesh_000" /></body>
+              <geom name="orcahand_right//unnamed_geom_15_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_thumb_ip_mesh_000" /><geom name="orcahand_right//unnamed_geom_17_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_thumb_ip_skin_mesh_000" /></body>
+            <geom name="orcahand_right//unnamed_geom_13_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_thumb_pp_mesh_000" /></body>
+          <geom name="orcahand_right//unnamed_geom_11_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_thumb_mp_mesh_000" /></body>
+          <body name="orcahand_right/right_index_mp" pos="-0.032509999999999997 0.0023500000000000001 0.043299999999999998" euler="1.6067 1.1355200000000001 -0.05339">
+            <inertial pos="0.01155 0 -4.0000000000000003e-05" euler="3.1415899999999999 -1.5708 0" mass="0.0049800000000000001" diaginertia="3.3999999999999997e-07 3.1e-07 1.9999999999999999e-07" />
+            <joint name="orcahand_right/right_index_abd" class="orcahand_right/" pos="0.02 0 0" axis="0 0 -1" range="-1.0457700000000001 0.24576999999999999" ref="-0.40000000000000002" />
+            <geom name="orcahand_right//unnamed_geom_22" class="orcahand_right/bone" mesh="orcahand_right/right_visual_index_mp_mesh" />
+            <body name="orcahand_right/right_index_pp" pos="0 0 0" euler="0 -1.5708 0">
+              <inertial pos="0.0013500000000000001 2.0000000000000002e-05 0.016369999999999999" euler="0.00034000000000000002 0.020549999999999999 0.00038000000000000002" mass="0.016500000000000001" diaginertia="2.39e-06 2.3099999999999999e-06 7.0999999999999998e-07" />
+              <joint name="orcahand_right/right_index_mcp" class="orcahand_right/" pos="0 0 0" axis="0 -1 0" range="-0.34906999999999999 1.6580600000000001" />
+              <geom name="orcahand_right//unnamed_geom_24" class="orcahand_right/bone" mesh="orcahand_right/right_visual_index_pp_mesh" />
+              <geom name="orcahand_right//unnamed_geom_26" class="orcahand_right/skin" mesh="orcahand_right/right_visual_index_pp_skin_mesh" />
+              <body name="orcahand_right/right_index_ip" pos="0.00050000000000000001 0 0.037999999999999999" euler="0 0 0">
+                <inertial pos="0.00071000000000000002 1.0000000000000001e-05 0.019290000000000002" euler="-0.00042000000000000002 -0.18548999999999999 0.0044000000000000003" mass="0.01521" diaginertia="2.08e-06 2.0600000000000002e-06 5.4000000000000002e-07" />
+                <joint name="orcahand_right/right_index_pip" class="orcahand_right/" pos="0 0 0" axis="0 -1 0" range="-0.34906999999999999 1.88496" />
+                <geom name="orcahand_right//unnamed_geom_28" class="orcahand_right/bone" mesh="orcahand_right/right_visual_index_ip_mesh" />
+                <geom name="orcahand_right//unnamed_geom_30" class="orcahand_right/skin" mesh="orcahand_right/right_visual_index_ip_skin_mesh" />
+                <geom name="orcahand_right//unnamed_geom_29_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_index_ip_mesh_000" /><geom name="orcahand_right//unnamed_geom_31_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_index_ip_skin_mesh_000" /></body>
+            <geom name="orcahand_right//unnamed_geom_25_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_index_pp_mesh_000" /><geom name="orcahand_right//unnamed_geom_27_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_index_pp_skin_mesh_000" /></body>
+          <geom name="orcahand_right//unnamed_geom_23_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_index_mp_mesh_000" /></body>
+          <body name="orcahand_right/right_middle_mp" pos="0 0 0.050000000000000003" euler="1.5708 1.5708 0">
+            <inertial pos="0.01155 0 -4.0000000000000003e-05" euler="3.1415899999999999 -1.5708 0" mass="0.0049800000000000001" diaginertia="3.3999999999999997e-07 3.1e-07 1.9999999999999999e-07" />
+            <joint name="orcahand_right/right_middle_abd" class="orcahand_right/" pos="0.02 0 0" axis="0 0 -1" range="-0.64576999999999996 0.64576999999999996" />
+            <geom name="orcahand_right//unnamed_geom_32" class="orcahand_right/bone" mesh="orcahand_right/right_visual_middle_mp_mesh" />
+            <body name="orcahand_right/right_middle_pp" pos="0 0 0" euler="0 -1.5708 0">
+              <inertial pos="0.0014400000000000001 2.0000000000000002e-05 0.020209999999999999" euler="-3.0000000000000001e-05 0.013860000000000001 0.00059999999999999995" mass="0.020060000000000001" diaginertia="3.7799999999999998e-06 3.6899999999999998e-06 8.8999999999999995e-07" />
+              <joint name="orcahand_right/right_middle_mcp" class="orcahand_right/" pos="0 0 0" axis="0 -1 0" range="-0.34906999999999999 1.5882499999999999" />
+              <geom name="orcahand_right//unnamed_geom_34" class="orcahand_right/bone" mesh="orcahand_right/right_visual_middle_pp_mesh" />
+              <geom name="orcahand_right//unnamed_geom_36" class="orcahand_right/skin" mesh="orcahand_right/right_visual_middle_pp_skin_mesh" />
+              <body name="orcahand_right/right_middle_ip" pos="0.00050000000000000001 0 0.045999999999999999" euler="0 0 0">
+                <inertial pos="0.00071000000000000002 1.0000000000000001e-05 0.019290000000000002" euler="-0.00042000000000000002 -0.18548999999999999 0.0044000000000000003" mass="0.01521" diaginertia="2.08e-06 2.0600000000000002e-06 5.4000000000000002e-07" />
+                <joint name="orcahand_right/right_middle_pip" class="orcahand_right/" pos="0 0 0" axis="0 -1 0" range="-0.34906999999999999 1.8674999999999999" />
+                <geom name="orcahand_right//unnamed_geom_38" class="orcahand_right/bone" mesh="orcahand_right/right_visual_middle_ip_mesh" />
+                <geom name="orcahand_right//unnamed_geom_40" class="orcahand_right/skin" mesh="orcahand_right/right_visual_middle_ip_skin_mesh" />
+                <geom name="orcahand_right//unnamed_geom_39_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_middle_ip_mesh_000" /><geom name="orcahand_right//unnamed_geom_41_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_middle_ip_skin_mesh_000" /></body>
+            <geom name="orcahand_right//unnamed_geom_35_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_middle_pp_mesh_000" /><geom name="orcahand_right//unnamed_geom_37_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_middle_pp_skin_mesh_000" /></body>
+          <geom name="orcahand_right//unnamed_geom_33_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_middle_mp_mesh_000" /></body>
+          <body name="orcahand_right/right_ring_mp" pos="0.026689999999999998 0.00199 0.040140000000000002" euler="-1.5359700000000001 1.30836 -3.0544099999999998">
+            <inertial pos="0.01155 0 -4.0000000000000003e-05" euler="3.1415899999999999 -1.5708 0" mass="0.0049800000000000001" diaginertia="3.3999999999999997e-07 3.1e-07 1.9999999999999999e-07" />
+            <joint name="orcahand_right/right_ring_abd" class="orcahand_right/" pos="0.02 0 0" axis="0 0 -1" range="-0.47577000000000003 0.80576999999999999" ref="0.17000000000000001" />
+            <geom name="orcahand_right//unnamed_geom_42" class="orcahand_right/bone" mesh="orcahand_right/right_visual_ring_mp_mesh" />
+            <body name="orcahand_right/right_ring_pp" pos="0 0 0" euler="0 -1.5708 0">
+              <inertial pos="0.0014400000000000001 2.0000000000000002e-05 0.020209999999999999" euler="-3.0000000000000001e-05 0.013860000000000001 0.00059999999999999995" mass="0.020060000000000001" diaginertia="3.7799999999999998e-06 3.6899999999999998e-06 8.8999999999999995e-07" />
+              <joint name="orcahand_right/right_ring_mcp" class="orcahand_right/" pos="0 0 0" axis="0 -1 0" range="-0.34906999999999999 1.5882499999999999" />
+              <geom name="orcahand_right//unnamed_geom_44" class="orcahand_right/bone" mesh="orcahand_right/right_visual_ring_pp_mesh" />
+              <geom name="orcahand_right//unnamed_geom_46" class="orcahand_right/skin" mesh="orcahand_right/right_visual_ring_pp_skin_mesh" />
+              <body name="orcahand_right/right_ring_ip" pos="0.00050000000000000001 0 0.045999999999999999" euler="0 0 0">
+                <inertial pos="0.00071000000000000002 1.0000000000000001e-05 0.019290000000000002" euler="-0.00042000000000000002 -0.18548999999999999 0.0044000000000000003" mass="0.01521" diaginertia="2.08e-06 2.0600000000000002e-06 5.4000000000000002e-07" />
+                <joint name="orcahand_right/right_ring_pip" class="orcahand_right/" pos="0 0 0" axis="0 -1 0" range="-0.34906999999999999 1.8674999999999999" />
+                <geom name="orcahand_right//unnamed_geom_48" class="orcahand_right/bone" mesh="orcahand_right/right_visual_ring_ip_mesh" />
+                <geom name="orcahand_right//unnamed_geom_50" class="orcahand_right/skin" mesh="orcahand_right/right_visual_ring_ip_skin_mesh" />
+                <geom name="orcahand_right//unnamed_geom_49_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_ring_ip_mesh_000" /><geom name="orcahand_right//unnamed_geom_51_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_ring_ip_skin_mesh_000" /></body>
+            <geom name="orcahand_right//unnamed_geom_45_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_ring_pp_mesh_000" /><geom name="orcahand_right//unnamed_geom_47_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_ring_pp_skin_mesh_000" /></body>
+          <geom name="orcahand_right//unnamed_geom_43_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_ring_mp_mesh_000" /></body>
+          <body name="orcahand_right/right_pinky_mp" pos="0.05518 0.0083099999999999997 0.022419999999999999" euler="-1.4969399999999999 0.86148999999999998 -2.8837299999999999">
+            <inertial pos="0.01155 0 -4.0000000000000003e-05" euler="3.1415899999999999 -1.5708 0" mass="0.0049800000000000001" diaginertia="3.3999999999999997e-07 3.1e-07 1.9999999999999999e-07" />
+            <joint name="orcahand_right/right_pinky_abd" class="orcahand_right/" pos="0.02 0 0" axis="0 0 -1" range="-0.12243999999999999 1.1691" ref="0.52332999999999996" />
+            <geom name="orcahand_right//unnamed_geom_52" class="orcahand_right/bone" mesh="orcahand_right/right_visual_pinky_mp_mesh" />
+            <body name="orcahand_right/right_pinky_pp" pos="0 0 0" euler="0 -1.5708 0">
+              <inertial pos="0.0013500000000000001 2.0000000000000002e-05 0.01383" euler="0.00036999999999999999 0.032629999999999999 0.00034000000000000002" mass="0.014019999999999999" diaginertia="1.7e-06 1.64e-06 5.8999999999999996e-07" />
+              <joint name="orcahand_right/right_pinky_mcp" class="orcahand_right/" pos="0 0 0" axis="0 -1 0" range="-0.34906999999999999 1.7104200000000001" />
+              <geom name="orcahand_right//unnamed_geom_54" class="orcahand_right/bone" mesh="orcahand_right/right_visual_pinky_pp_mesh" />
+              <geom name="orcahand_right//unnamed_geom_56" class="orcahand_right/skin" mesh="orcahand_right/right_visual_pinky_pp_skin_mesh" />
+              <body name="orcahand_right/right_pinky_ip" pos="0.00050000000000000001 0 0.033000000000000002" euler="0 0 0">
+                <inertial pos="0.00071000000000000002 1.0000000000000001e-05 0.019290000000000002" euler="-0.00042000000000000002 -0.18548999999999999 0.0044000000000000003" mass="0.01521" diaginertia="2.08e-06 2.0600000000000002e-06 5.4000000000000002e-07" />
+                <joint name="orcahand_right/right_pinky_pip" class="orcahand_right/" pos="0 0 0" axis="0 -1 0" range="-0.34906999999999999 1.88496" />
+                <geom name="orcahand_right//unnamed_geom_58" class="orcahand_right/bone" mesh="orcahand_right/right_visual_pinky_ip_mesh" />
+                <geom name="orcahand_right//unnamed_geom_60" class="orcahand_right/skin" mesh="orcahand_right/right_visual_pinky_ip_skin_mesh" />
+                <geom name="orcahand_right//unnamed_geom_59_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_pinky_ip_mesh_000" /><geom name="orcahand_right//unnamed_geom_61_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_pinky_ip_skin_mesh_000" /></body>
+            <geom name="orcahand_right//unnamed_geom_55_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_pinky_pp_mesh_000" /><geom name="orcahand_right//unnamed_geom_57_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_pinky_pp_skin_mesh_000" /></body>
+          <geom name="orcahand_right//unnamed_geom_53_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_pinky_mp_mesh_000" /></body>
+        <geom name="orcahand_right//unnamed_geom_7_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_palm_mesh_000" /><geom name="orcahand_right//unnamed_geom_9_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_palm_skin_mesh_000" /></body>
+      <geom name="orcahand_right//unnamed_geom_1_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_tower_main_mesh_000" /><geom name="orcahand_right//unnamed_geom_3_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_tower_hull_mesh_000" /><geom name="orcahand_right//unnamed_geom_3_001" class="orcahand_right/collision" mesh="orcahand_right/right_collision_tower_hull_mesh_001" /><geom name="orcahand_right//unnamed_geom_5_000" class="orcahand_right/collision" mesh="orcahand_right/right_collision_tower_text_mesh_000" /><geom name="orcahand_right//unnamed_geom_5_001" class="orcahand_right/collision" mesh="orcahand_right/right_collision_tower_text_mesh_001" /></body>
+    </body>
+    <body name="unnamed_model/">
+      <light name="unnamed_model/light0" class="unnamed_model/" directional="true" castshadow="false" pos="0 1 4" dir="0 0 -1" ambient="0.20000000000000001 0.20000000000000001 0.20000000000000001" diffuse="0.80000000000000004 0.80000000000000004 0.80000000000000004" specular="0.29999999999999999 0.29999999999999999 0.29999999999999999" />
+    </body>
+  </worldbody>
+  <contact>
+    <exclude name="orcahand_right//unnamed_contact_0" body1="orcahand_right/right_tower" body2="orcahand_right/right_palm" />
+    <exclude name="orcahand_right//unnamed_contact_1" body1="orcahand_right/right_palm" body2="orcahand_right/right_thumb_mp" />
+    <exclude name="orcahand_right//unnamed_contact_2" body1="orcahand_right/right_thumb_mp" body2="orcahand_right/right_thumb_pp" />
+    <exclude name="orcahand_right//unnamed_contact_3" body1="orcahand_right/right_thumb_pp" body2="orcahand_right/right_thumb_ip" />
+    <exclude name="orcahand_right//unnamed_contact_4" body1="orcahand_right/right_thumb_ip" body2="orcahand_right/right_thumb_dp" />
+    <exclude name="orcahand_right//unnamed_contact_5" body1="orcahand_right/right_palm" body2="orcahand_right/right_index_mp" />
+    <exclude name="orcahand_right//unnamed_contact_6" body1="orcahand_right/right_index_mp" body2="orcahand_right/right_index_pp" />
+    <exclude name="orcahand_right//unnamed_contact_7" body1="orcahand_right/right_index_pp" body2="orcahand_right/right_index_ip" />
+    <exclude name="orcahand_right//unnamed_contact_8" body1="orcahand_right/right_palm" body2="orcahand_right/right_middle_mp" />
+    <exclude name="orcahand_right//unnamed_contact_9" body1="orcahand_right/right_middle_mp" body2="orcahand_right/right_middle_pp" />
+    <exclude name="orcahand_right//unnamed_contact_10" body1="orcahand_right/right_middle_pp" body2="orcahand_right/right_middle_ip" />
+    <exclude name="orcahand_right//unnamed_contact_11" body1="orcahand_right/right_palm" body2="orcahand_right/right_ring_mp" />
+    <exclude name="orcahand_right//unnamed_contact_12" body1="orcahand_right/right_ring_mp" body2="orcahand_right/right_ring_pp" />
+    <exclude name="orcahand_right//unnamed_contact_13" body1="orcahand_right/right_ring_pp" body2="orcahand_right/right_ring_ip" />
+    <exclude name="orcahand_right//unnamed_contact_14" body1="orcahand_right/right_palm" body2="orcahand_right/right_pinky_mp" />
+    <exclude name="orcahand_right//unnamed_contact_15" body1="orcahand_right/right_pinky_mp" body2="orcahand_right/right_pinky_pp" />
+    <exclude name="orcahand_right//unnamed_contact_16" body1="orcahand_right/right_pinky_pp" body2="orcahand_right/right_pinky_ip" />
+    <exclude name="orcahand_right//unnamed_contact_17" body1="orcahand_right/right_palm" body2="orcahand_right/right_thumb_pp" />
+  </contact>
+  <actuator>
+    <position name="orcahand_right/right_wrist_actuator" class="orcahand_right/" ctrlrange="-0.67359999999999998 0.8972" joint="orcahand_right/right_wrist" />
+    <position name="orcahand_right/right_thumb_mcp_actuator" class="orcahand_right/" ctrlrange="-0.87265999999999999 0.87265999999999999" joint="orcahand_right/right_thumb_mcp" />
+    <position name="orcahand_right/right_thumb_abd_actuator" class="orcahand_right/" ctrlrange="-1.0821099999999999 0" joint="orcahand_right/right_thumb_abd" />
+    <position name="orcahand_right/right_thumb_pip_actuator" class="orcahand_right/" ctrlrange="-0.7944 1.23" joint="orcahand_right/right_thumb_pip" />
+    <position name="orcahand_right/right_thumb_dip_actuator" class="orcahand_right/" ctrlrange="-0.85384000000000004 1.45" joint="orcahand_right/right_thumb_dip" />
+    <position name="orcahand_right/right_index_abd_actuator" class="orcahand_right/" ctrlrange="-1.0457700000000001 0.24576999999999999" joint="orcahand_right/right_index_abd" />
+    <position name="orcahand_right/right_index_mcp_actuator" class="orcahand_right/" ctrlrange="-0.34906999999999999 1.6580600000000001" joint="orcahand_right/right_index_mcp" />
+    <position name="orcahand_right/right_index_pip_actuator" class="orcahand_right/" ctrlrange="-0.34906999999999999 1.88496" joint="orcahand_right/right_index_pip" />
+    <position name="orcahand_right/right_middle_abd_actuator" class="orcahand_right/" ctrlrange="-0.64576999999999996 0.64576999999999996" joint="orcahand_right/right_middle_abd" />
+    <position name="orcahand_right/right_middle_mcp_actuator" class="orcahand_right/" ctrlrange="-0.34906999999999999 1.5882499999999999" joint="orcahand_right/right_middle_mcp" />
+    <position name="orcahand_right/right_middle_pip_actuator" class="orcahand_right/" ctrlrange="-0.34906999999999999 1.8674999999999999" joint="orcahand_right/right_middle_pip" />
+    <position name="orcahand_right/right_ring_abd_actuator" class="orcahand_right/" ctrlrange="-0.47577000000000003 0.80576999999999999" joint="orcahand_right/right_ring_abd" />
+    <position name="orcahand_right/right_ring_mcp_actuator" class="orcahand_right/" ctrlrange="-0.34906999999999999 1.5882499999999999" joint="orcahand_right/right_ring_mcp" />
+    <position name="orcahand_right/right_ring_pip_actuator" class="orcahand_right/" ctrlrange="-0.34906999999999999 1.8674999999999999" joint="orcahand_right/right_ring_pip" />
+    <position name="orcahand_right/right_pinky_abd_actuator" class="orcahand_right/" ctrlrange="-0.12243999999999999 1.1691" joint="orcahand_right/right_pinky_abd" />
+    <position name="orcahand_right/right_pinky_mcp_actuator" class="orcahand_right/" ctrlrange="-0.34906999999999999 1.7104200000000001" joint="orcahand_right/right_pinky_mcp" />
+    <position name="orcahand_right/right_pinky_pip_actuator" class="orcahand_right/" ctrlrange="-0.34906999999999999 1.88496" joint="orcahand_right/right_pinky_pip" />
+  </actuator>
+</mujoco>
