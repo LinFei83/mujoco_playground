@@ -1,113 +1,114 @@
-# MuJoCo Playground
+# MuJoCo 游乐场
 
 [![Build](https://img.shields.io/github/actions/workflow/status/google-deepmind/mujoco_playground/ci.yml?branch=main)](https://github.com/google-deepmind/mujoco_playground/actions)
 [![PyPI version](https://img.shields.io/pypi/v/playground)](https://pypi.org/project/playground/)
 ![Banner for playground](https://github.com/google-deepmind/mujoco_playground/blob/main/assets/banner.png?raw=true)
 
-A comprehensive suite of GPU-accelerated environments for robot learning research and sim-to-real, built with [MuJoCo MJX](https://github.com/google-deepmind/mujoco/tree/main/mjx).
+一个用于机器人学习研究和模拟到实物的GPU加速环境综合套件，基于[MuJoCo MJX](https://github.com/google-deepmind/mujoco/tree/main/mjx)构建。
 
-Features include:
+功能包括：
 
-- Classic control environments from `dm_control`.
-- Quadruped and bipedal locomotion environments.
-- Non-prehensile and dexterous manipulation environments.
-- Vision-based support available via [Madrona-MJX](https://github.com/shacklettbp/madrona_mjx).
+- 来自`dm_control`的经典控制环境。
+- 四足和双足运动环境。
+- 非预先操作和灵巧操作环境。
+- 通过[Madrona-MJX](https://github.com/shacklettbp/madrona_mjx)提供基于视觉的支持。
 
-For more details, check out the project [website](https://playground.mujoco.org/).
+有关更多详细信息，请查看项目[网站](https://playground.mujoco.org/)。
 
 > [!NOTE]
-> We now support training with both the MuJoCo MJX JAX implementation, as well as the [MuJoCo Warp](https://github.com/google-deepmind/mujoco_warp) implementation at HEAD. See MuJoCo 3.3.5 [release notes](https://mujoco.readthedocs.io/en/stable/changelog.html#version-3-3-5-august-8-2025) under `MJX` for more details.
+> 我们现在支持使用MuJoCo MJX JAX实现和[MuJoCo Warp](https://github.com/google-deepmind/mujoco_warp)在HEAD的实现进行训练。请参阅MuJoCo 3.3.5[发行说明](https://mujoco.readthedocs.io/en/stable/changelog.html#version-3-3-5-august-8-2025)中`MJX`部分的更多详细信息。
 
-## Installation
+## 安装
 
-You can install MuJoCo Playground directly from PyPI:
+你可以直接从PyPI安装MuJoCo Playground：
 
 ```sh
 pip install playground
 ```
 
 > [!WARNING]
-> The `playground` release may depend on pre-release versions of `mujoco` and
-> `warp-lang`, in which case you can try `pip install playground
+> `playground`发行版可能依赖于`mujoco`和`warp-lang`的预发布版本，在这种情况下，你可以尝试`pip install playground
 > --extra-index-url=https://py.mujoco.org
-> --extra-index-url=https://pypi.nvidia.com/warp-lang/`.
-> If there are still version mismatches, please open a github issue, and install
-> from source.
+> --extra-index-url=https://pypi.nvidia.com/warp-lang/`。
+> 如果仍有版本不匹配，请在GitHub上打开一个issue，并从源码安装。
 
-### From Source
+### 从源码安装
 
 > [!IMPORTANT]
-> Requires Python 3.10 or later.
+> 需要Python 3.10或更高版本。
 
 1. `git clone git@github.com:google-deepmind/mujoco_playground.git && cd mujoco_playground`
-2. [Install uv](https://docs.astral.sh/uv/getting-started/installation/), a faster alternative to `pip`
-3. Create a virtual environment: `uv venv --python 3.11`
-4. Activate it: `source .venv/bin/activate`
-5. Install CUDA 12 jax: `uv pip install -U "jax[cuda12]"`
-    * Verify GPU backend: `python -c "import jax; print(jax.default_backend())"` should print gpu
-6. Install playground: `uv pip install -e ".[all]"`
-7. Verify installation (and download Menagerie): `python -c "import mujoco_playground"`
+2. [安装uv](https://docs.astral.sh/uv/getting-started/installation/)，一个比`pip`更快的替代品
+3. 创建虚拟环境：`uv venv --python 3.11`
+4. 激活它：`source .venv/bin/activate`
+5. 安装CUDA 12 jax：`uv pip install -U "jax[cuda12]"`
+    * 验证GPU后端：`python -c "import jax; print(jax.default_backend())"` 应该打印gpu
+6. 安装playground：`uv pip install -e ".[all]"`
+7. 验证安装（并下载Menagerie）：`python -c "import mujoco_playground"`
 
-#### Madrona-MJX (optional)
+#### Madrona-MJX（可选）
 
-For vision-based environments, please refer to the installation instructions in the [Madrona-MJX](https://github.com/shacklettbp/madrona_mjx?tab=readme-ov-file#installation) repository.
+对于基于视觉的环境，请参考[Madrona-MJX](https://github.com/shacklettbp/madrona_mjx?tab=readme-ov-file#installation)仓库中的安装说明。
 
-## Getting started
+## 开始使用
 
-### Basic Tutorials
-| Colab | Description |
-|-------|-------------|
-| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/dm_control_suite.ipynb) | Introduction to the Playground with DM Control Suite |
-| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/locomotion.ipynb) | Locomotion Environments |
-| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/manipulation.ipynb) | Manipulation Environments |
+### 基本教程
 
-### Vision-Based Tutorials (GPU Colab)
-| Colab | Description |
-|-------|-------------|
-| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/training_vision_1_t4.ipynb) | Training CartPole from Vision (T4 Instance) |
+| Colab | 描述 |
+|-------|------|
+| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/dm_control_suite.ipynb) | 使用DM Control Suite介绍Playground |
+| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/locomotion.ipynb) | 运动环境 |
+| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/manipulation.ipynb) | 操作环境 |
 
-### Local Runtime Tutorials
-*Requires local Madrona-MJX installation*
+### 基于视觉的教程（GPU Colab）
 
-| Colab | Description |
-|-------|-------------|
-| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/training_vision_1.ipynb) | Training CartPole from Vision |
-| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/training_vision_2.ipynb) | Robotic Manipulation from Vision |
+| Colab | 描述 |
+|-------|------|
+| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/training_vision_1_t4.ipynb) | 从视觉训练CartPole（T4实例） |
 
-## Running from CLI
+### 本地运行时教程
+*需要本地Madrona-MJX安装*
+
+| Colab | 描述 |
+|-------|------|
+| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/training_vision_1.ipynb) | 从视觉训练CartPole |
+| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google-deepmind/mujoco_playground/blob/main/learning/notebooks/training_vision_2.ipynb) | 机器人视觉操作 |
+
+## 从CLI运行
+
 > [!IMPORTANT]
-> Assumes installation from source.
+> 假设从源码安装。
 
-For basic usage, navigate to the repo's directory and run:
+对于基本使用，导航到仓库目录并运行：
 ```bash
 python learning/train_jax_ppo.py --env_name CartpoleBalance
 ```
 
-### Training Visualization
+### 训练可视化
 
-To interactively view trajectories throughout training with [rscope](https://github.com/Andrew-Luo1/rscope/tree/main), install it (`pip install rscope`) and run:
+要使用[rscope](https://github.com/Andrew-Luo1/rscope/tree/main)交互式查看训练过程中的轨迹，安装它（`pip install rscope`）并运行：
 
 ```
 python learning/train_jax_ppo.py --env_name PandaPickCube --rscope_envs 16 --run_evals=False --deterministic_rscope=True
-# In a separate terminal
+# 在另一个终端中
 python -m rscope
 ```
 
-## FAQ
+## 常见问题
 
-### How can I contribute?
+### 我如何贡献？
 
-Get started by installing the library and exploring its features! Found a bug? Report it in the issue tracker. Interested in contributing? If you are a developer with robotics experience, we would love your help—check out the [contribution guidelines](CONTRIBUTING.md) for more details.
+通过安装库并探索其功能开始！发现了一个bug？在issue tracker中报告。有兴趣贡献？如果你是一个有机器人经验的开发者，我们很乐意你的帮助——查看[贡献指南](CONTRIBUTING.md)了解更多详细信息。
 
-### Reproducibility / GPU Precision Issues
+### 可重现性 / GPU精度问题
 
-Users with NVIDIA Ampere architecture GPUs (e.g., RTX 30 and 40 series) may experience reproducibility [issues](https://github.com/google-deepmind/mujoco_playground/issues/86) in mujoco_playground due to JAX’s default use of TF32 for matrix multiplications. This lower precision can adversely affect RL training stability. To ensure consistent behavior with systems using full float32 precision (as on Turing GPUs), please run `export JAX_DEFAULT_MATMUL_PRECISION=highest` in your terminal before starting your experiments (or add it to the end of `~/.bashrc`).
+使用NVIDIA Ampere架构GPU的用户（例如RTX 30和40系列）可能会由于JAX默认使用TF32进行矩阵乘法而在mujoco_playground中遇到可重现性[问题](https://github.com/google-deepmind/mujoco_playground/issues/86)。这种较低的精度可能会对RL训练稳定性产生不利影响。为了确保与使用完整float32精度的系统（例如Turing GPU）一致的行为，请在启动实验之前在终端中运行`export JAX_DEFAULT_MATMUL_PRECISION=highest`（或将其添加到`~/.bashrc`末尾）。
 
-To reproduce results using the same exact learning script as used in the paper, run the brax training script which is available [here](https://github.com/google/brax/blob/1ed3be220c9fdc9ef17c5cf80b1fa6ddc4fb34fa/brax/training/learner.py#L1). There are slight differences in results when using the `learning/train_jax_ppo.py` script, see the issue [here](https://github.com/google-deepmind/mujoco_playground/issues/171) for more context.
+要使用论文中使用的相同学习脚本重现结果，请运行brax训练脚本，可从[这里](https://github.com/google/brax/blob/1ed3be220c9fdc9ef17c5cf80b1fa6ddc4fb34fa/brax/training/learner.py#L1)获取。使用`learning/train_jax_ppo.py`脚本时结果稍有不同，请参阅[这里](https://github.com/google-deepmind/mujoco_playground/issues/171)的issue了解更多上下文。
 
-## Citation
+## 引用
 
-If you use Playground in your scientific works, please cite it as follows:
+如果您在科学作品中使用Playground，请按如下方式引用：
 
 ```bibtex
 @misc{mujoco_playground_2025,
@@ -119,10 +120,10 @@ If you use Playground in your scientific works, please cite it as follows:
 }
 ```
 
-## License and Disclaimer
+## 许可证和免责声明
 
-The texture used in the rough terrain for the locomotion environments is from [Polyhaven](https://polyhaven.com/a/rock_face) and licensed under [CC0](https://creativecommons.org/public-domain/cc0/).
+运动环境中粗糙地形使用的纹理来自[Polyhaven](https://polyhaven.com/a/rock_face)，并根据[CC0](https://creativecommons.org/public-domain/cc0/)许可。
 
-All other content in this repository is licensed under the Apache License, Version 2.0. A copy of this license is provided in the top-level [LICENSE](LICENSE) file in this repository. You can also obtain it from https://www.apache.org/licenses/LICENSE-2.0.
+本仓库中的所有其他内容根据Apache许可证2.0版许可。本仓库顶级[LICENSE](LICENSE)文件中提供了该许可证的副本。您也可以从https://www.apache.org/licenses/LICENSE-2.0获取。
 
-This is not an officially supported Google product.
+这不是Google官方支持的产品。

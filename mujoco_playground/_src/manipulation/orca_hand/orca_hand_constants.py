@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Constants for ORCA hand."""
+"""ORCA手的常量。"""
 
 from mujoco_playground._src import mjx_env
 
@@ -20,39 +20,39 @@ ROOT_PATH = mjx_env.ROOT_PATH / "manipulation" / "orca_hand"
 # RUBIK_SCENE_XML = ROOT_PATH / "xmls" / "scene" / "combined_rubik_scene.xml"
 RUBIK_SCENE_XML = ROOT_PATH / "xmls" / "convex" / "combined_rubik_scene.xml"
 
-# Based on the combined_rubik_scene analysis
-NQ = 17  # 17 joints (1 wrist + 16 finger joints)
-NV = 17  # 17 DOF
-NU = 17  # 17 actuators
+# 基于combined_rubik_scene分析
+NQ = 17  # 17个关节（1个手腕 + 16个手指关节）
+NV = 17  # 17个自由度
+NU = 17  # 17个执行器
 
-# Joint names based on the scene analysis
+# 基于场景分析的关节名称
 JOINT_NAMES = [
-    # wrist
+    # 手腕
     "orcahand_right/right_wrist",
-    # thumb
+    # 拇指
     "orcahand_right/right_thumb_mcp",
     "orcahand_right/right_thumb_abd",
     "orcahand_right/right_thumb_pip",
     "orcahand_right/right_thumb_dip",
-    # index finger
+    # 食指
     "orcahand_right/right_index_abd",
     "orcahand_right/right_index_mcp",
     "orcahand_right/right_index_pip",
-    # middle finger
+    # 中指
     "orcahand_right/right_middle_abd",
     "orcahand_right/right_middle_mcp",
     "orcahand_right/right_middle_pip",
-    # ring finger
+    # 无名指
     "orcahand_right/right_ring_abd",
     "orcahand_right/right_ring_mcp",
     "orcahand_right/right_ring_pip",
-    # pinky finger
+    # 小指
     "orcahand_right/right_pinky_abd",
     "orcahand_right/right_pinky_mcp",
     "orcahand_right/right_pinky_pip",
 ]
 
-# Actuator names based on the scene analysis
+# 基于场景分析的执行器名称
 ACTUATOR_NAMES = [
     "orcahand_right/right_wrist_actuator",
     "orcahand_right/right_thumb_mcp_actuator",
@@ -73,11 +73,18 @@ ACTUATOR_NAMES = [
     "orcahand_right/right_pinky_pip_actuator",
 ]
 
-# Fingertip names for sensor readings
+# 用于传感器读数的手指尖名称
 FINGERTIP_NAMES = [
     "thumb_tip",
     "index_tip", 
     "middle_tip",
     "ring_tip",
     "pinky_tip",
+]
+
+CUBE_JOINT_NAMES = [
+    "rubik-v1.50/cube_tx",
+    "rubik-v1.50/cube_ty",
+    "rubik-v1.50/cube_tz",
+    "rubik-v1.50/cube_rot",
 ]
