@@ -18,8 +18,8 @@ from mujoco_playground._src.manipulation.orca_hand import orca_hand_constants as
 def default_config() -> config_dict.ConfigDict:
   """ORCA手魔方重定向的默认配置。"""
   return config_dict.create(
-      ctrl_dt=0.05,
-      sim_dt=0.01,
+      ctrl_dt=0.02, 
+      sim_dt=0.01,  # 仿真步
       action_scale=0.5,
       action_repeat=1,
       ema_alpha=1.0,
@@ -117,7 +117,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
 
   def reset(self, rng: jax.Array) -> mjx_env.State:
     """重置环境到初始状态。"""
-    print("RubikReorient: 执行reset操作")
+    print("RubikReorient: 开始执行reset操作")
     # 使用固定的目标方向（单位四元数，无旋转）
     goal_quat = jp.array([1.0, 0.0, 0.0, 0.0])
 
@@ -184,10 +184,12 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
 
     obs = self._get_obs(data, info)
     reward, done = jp.zeros(2)
+    print("RubikReorient: reset操作完成")
     return mjx_env.State(data, obs, reward, done, metrics, info)
 
   def step(self, state: mjx_env.State, action: jax.Array) -> mjx_env.State:
     """执行一步环境仿真。"""
+    print("RubikReorient: 开始执行step操作")
     if self._config.pert_config.enable:
       state = self._maybe_apply_perturbation(state, state.info["rng"])
 
@@ -248,20 +250,24 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
 
     done = done.astype(reward.dtype)
     state = state.replace(data=data, obs=obs, reward=reward, done=done)
+    print("RubikReorient: step操作完成")
     return state
 
   def _get_termination(self, data: mjx.Data, info: dict[str, Any]) -> jax.Array:
     """检查终止条件。"""
+    print("RubikReorient: 开始检查终止条件。")
     del info  # 未使用
     # 如果魔方下落到某个高度以下则终止
     fall_termination = self.get_cube_position(data)[2] < 0.1
     nans = jp.any(jp.isnan(data.qpos)) | jp.any(jp.isnan(data.qvel))
+    print("RubikReorient: 检查终止条件完成。")
     return fall_termination | nans
 
   def _get_obs(
       self, data: mjx.Data, info: dict[str, Any]
   ) -> mjx_env.Observation:
     """获取观测值。"""
+    print("RubikReorient: 开始获取观测值。")
     # 手部关节角度
     joint_angles = data.qpos[self._hand_qids]
     info["rng"], noise_rng = jax.random.split(info["rng"])
@@ -357,7 +363,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
         info["pert_dir"],
         data.xfrc_applied[self._cube_body_id],
     ])
-
+    print("RubikReorient: 获取观测值完成。")
     return {
         "state": state,
         "privileged_state": privileged_state,
@@ -374,6 +380,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
       done: jax.Array,
   ) -> dict[str, jax.Array]:
     """计算奖励组件。"""
+    print("RubikReorient: 开始计算奖励组件。")
     del done, metrics  # 未使用
 
     cube_pos = self.get_cube_position(data)
@@ -388,7 +395,7 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     hand_pose_reward = jp.sum(
         jp.square(data.qpos[self._hand_qids] - self._default_pose)
     )
-
+    print("RubikReorient: 计算奖励组件完成。")
     return {
         "orientation": self._reward_cube_orientation(data),
         "position": cube_pos_reward,
@@ -438,7 +445,6 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
     return jp.sum((hand_qvel / (max_velocity - vel_tolerance)) ** 2)
 
   # 扰动
-
   def _maybe_apply_perturbation(
       self, state: mjx_env.State, rng: jax.Array
   ) -> mjx_env.State:
@@ -479,141 +485,4 @@ class RubikReorient(orca_hand_base.OrcaHandEnv):
 
 def domain_randomize(model: mjx.Model, rng: jax.Array):
   """ORCA手魔方任务的领域随机化。"""
-  mj_model = RubikReorient().mj_model
-  cube_geom_id = mj_model.geom("rubik-v1.50/middle").id
-  cube_body_id = mj_model.body("rubik-v1.50/middle").id
-  hand_qids = mjx_env.get_qpos_ids(mj_model, consts.JOINT_NAMES)
-  
-  # 获取手部物体名称（针对ORCA手简化）
-  hand_body_names = [
-      "orcahand_right/right_palm",
-      "orcahand_right/right_thumb_mp",
-      "orcahand_right/right_thumb_pp", 
-      "orcahand_right/right_thumb_ip",
-      "orcahand_right/right_thumb_dp",
-      "orcahand_right/right_index_mp",
-      "orcahand_right/right_index_pp",
-      "orcahand_right/right_index_ip",
-      "orcahand_right/right_middle_mp",
-      "orcahand_right/right_middle_pp",
-      "orcahand_right/right_middle_ip",
-      "orcahand_right/right_ring_mp",
-      "orcahand_right/right_ring_pp",
-      "orcahand_right/right_ring_ip",
-      "orcahand_right/right_pinky_mp",
-      "orcahand_right/right_pinky_pp",
-      "orcahand_right/right_pinky_ip",
-  ]
-  hand_body_ids = np.array([mj_model.body(n).id for n in hand_body_names])
-
-  @jax.vmap
-  def rand(rng):
-    rng, key = jax.random.split(rng)
-    
-    # 缩放魔方质量：*U(0.8, 1.2)
-    rng, key1, key2 = jax.random.split(rng, 3)
-    dmass = jax.random.uniform(key1, minval=0.8, maxval=1.2)
-    body_inertia = model.body_inertia.at[cube_body_id].set(
-        model.body_inertia[cube_body_id] * dmass
-    )
-    dpos = jax.random.uniform(key2, (3,), minval=-5e-3, maxval=5e-3)
-    body_ipos = model.body_ipos.at[cube_body_id].set(
-        model.body_ipos[cube_body_id] + dpos
-    )
-
-    # 抖动qpos0：+U(-0.05, 0.05)
-    rng, key = jax.random.split(rng)
-    qpos0 = model.qpos0
-    qpos0 = qpos0.at[hand_qids].set(
-        qpos0[hand_qids]
-        + jax.random.uniform(key, shape=(consts.NQ,), minval=-0.05, maxval=0.05)
-    )
-
-    # 缩放静摩擦：*U(0.9, 1.1)
-    rng, key = jax.random.split(rng)
-    frictionloss = model.dof_frictionloss[hand_qids] * jax.random.uniform(
-        key, shape=(consts.NQ,), minval=0.5, maxval=2.0
-    )
-    dof_frictionloss = model.dof_frictionloss.at[hand_qids].set(frictionloss)
-
-    # 缩放电枢：*U(1.0, 1.05)
-    rng, key = jax.random.split(rng)
-    armature = model.dof_armature[hand_qids] * jax.random.uniform(
-        key, shape=(consts.NQ,), minval=1.0, maxval=1.05
-    )
-    dof_armature = model.dof_armature.at[hand_qids].set(armature)
-
-    # 缩放所有连杆质量：*U(0.9, 1.1)
-    rng, key = jax.random.split(rng)
-    dmass = jax.random.uniform(
-        key, shape=(len(hand_body_ids),), minval=0.9, maxval=1.1
-    )
-    body_mass = model.body_mass.at[hand_body_ids].set(
-        model.body_mass[hand_body_ids] * dmass
-    )
-
-    # 关节刚度：*U(0.8, 1.2)
-    rng, key = jax.random.split(rng)
-    kp = model.actuator_gainprm[:, 0] * jax.random.uniform(
-        key, (model.nu,), minval=0.8, maxval=1.2
-    )
-    actuator_gainprm = model.actuator_gainprm.at[:, 0].set(kp)
-    actuator_biasprm = model.actuator_biasprm.at[:, 1].set(-kp)
-
-    # 关节阻尼：*U(0.8, 1.2)
-    rng, key = jax.random.split(rng)
-    kd = model.dof_damping[hand_qids] * jax.random.uniform(
-        key, (consts.NQ,), minval=0.8, maxval=1.2
-    )
-    dof_damping = model.dof_damping.at[hand_qids].set(kd)
-
-    return (
-        body_mass,
-        body_inertia,
-        body_ipos,
-        qpos0,
-        dof_frictionloss,
-        dof_armature,
-        dof_damping,
-        actuator_gainprm,
-        actuator_biasprm,
-    )
-
-  (
-      body_mass,
-      body_inertia,
-      body_ipos,
-      qpos0,
-      dof_frictionloss,
-      dof_armature,
-      dof_damping,
-      actuator_gainprm,
-      actuator_biasprm,
-  ) = rand(rng)
-
-  in_axes = jax.tree_util.tree_map(lambda x: None, model)
-  in_axes = in_axes.tree_replace({
-      "body_mass": 0,
-      "body_inertia": 0,
-      "body_ipos": 0,
-      "qpos0": 0,
-      "dof_frictionloss": 0,
-      "dof_armature": 0,
-      "dof_damping": 0,
-      "actuator_gainprm": 0,
-      "actuator_biasprm": 0,
-  })
-
-  model = model.tree_replace({
-      "body_mass": body_mass,
-      "body_inertia": body_inertia,
-      "body_ipos": body_ipos,
-      "qpos0": qpos0,
-      "dof_frictionloss": dof_frictionloss,
-      "dof_armature": dof_armature,
-      "dof_damping": dof_damping,
-      "actuator_gainprm": actuator_gainprm,
-      "actuator_biasprm": actuator_biasprm,
-  })
-
-  return model, in_axes
+pass

@@ -106,7 +106,7 @@ class CubeReorient(leap_hand_base.LeapHandEnv):
 
   def reset(self, rng: jax.Array) -> mjx_env.State:
     # Randomize the goal orientation.
-    print("LeapCubeReorient: 执行reset操作")
+    print("LeapCubeReorient: 开始执行reset操作")
     rng, goal_rng = jax.random.split(rng)
     goal_quat = leap_hand_base.uniform_quat(goal_rng)
 
@@ -196,9 +196,11 @@ class CubeReorient(leap_hand_base.LeapHandEnv):
 
     obs = self._get_obs(data, info)
     reward, done = jp.zeros(2)  # pylint: disable=redefined-outer-name
+    print("LeapCubeReorient: reset操作完成")
     return mjx_env.State(data, obs, reward, done, metrics, info)
 
   def step(self, state: mjx_env.State, action: jax.Array) -> mjx_env.State:
+    print("LeapCubeReorient: 开始执行step操作")
     if self._config.pert_config.enable:
       state = self._maybe_apply_perturbation(state, state.info["rng"])
 
@@ -263,9 +265,11 @@ class CubeReorient(leap_hand_base.LeapHandEnv):
 
     done = done.astype(reward.dtype)
     state = state.replace(data=data, obs=obs, reward=reward, done=done)
+    print("LeapCubeReorient: step操作完成")
     return state
 
   def _get_termination(self, data: mjx.Data, info: dict[str, Any]) -> jax.Array:
+    print("LeapCubeReorient: 开始检查终止条件。")
     del info  # Unused.
     fall_termination = self.get_cube_position(data)[2] < -0.05
     nans = jp.any(jp.isnan(data.qpos)) | jp.any(jp.isnan(data.qvel))
@@ -369,7 +373,7 @@ class CubeReorient(leap_hand_base.LeapHandEnv):
         info["pert_dir"],
         data.xfrc_applied[self._cube_body_id],
     ])
-
+    print("LeapCubeReorient: 获取观测值完成。")
     return {
         "state": state,
         "privileged_state": privileged_state,
@@ -385,6 +389,7 @@ class CubeReorient(leap_hand_base.LeapHandEnv):
       metrics: dict[str, Any],
       done: jax.Array,
   ) -> dict[str, jax.Array]:
+    print("LeapCubeReorient: 开始计算奖励组件。")
     del done, metrics  # Unused.
 
     cube_pos = self.get_cube_position(data)
@@ -399,7 +404,7 @@ class CubeReorient(leap_hand_base.LeapHandEnv):
     hand_pose_reward = jp.sum(
         jp.square(data.qpos[self._hand_qids] - self._default_pose)
     )
-
+    print("LeapCubeReorient: 计算奖励组件完成。")
     return {
         "orientation": self._reward_cube_orientation(data),
         "position": cube_pos_reward,
