@@ -167,23 +167,24 @@ def brax_ppo_config(
     )
     rl_config.num_resets_per_eval = 1
   elif env_name == "OrcaRubikReorient":
-    rl_config.num_timesteps = 5_000
-    rl_config.num_evals = 20
-    rl_config.num_minibatches = 8  # 减少minibatch数量
-    rl_config.unroll_length = 20  # 减少unroll长度
-    rl_config.num_updates_per_batch = 2  # 减少更新次数
-    rl_config.discounting = 0.99
-    rl_config.learning_rate = 3e-4
-    rl_config.entropy_cost = 1e-2
-    rl_config.num_envs = 8  # 大幅减少环境数量
-    rl_config.batch_size = 64  # 相应减少batch size
+    rl_config.num_timesteps = 5_000  # 训练总时间步数
+    rl_config.num_evals = 20  # 评估次数
+    rl_config.num_minibatches = 8  # 每个批次的小批量数量
+    rl_config.unroll_length = 20  # 展开长度（用于序列处理）
+    rl_config.num_updates_per_batch = 2  # 每个批次的更新次数
+    rl_config.discounting = 0.99  # 折扣因子
+    rl_config.learning_rate = 3e-4  # 学习率
+    rl_config.entropy_cost = 1e-2  # 熵代价系数
+    rl_config.num_envs = 8  # 并行环境数量
+    rl_config.batch_size = 64  # 批次大小
+    # 网络工厂配置：策略网络和价值网络的隐藏层大小及观测键
     rl_config.network_factory = config_dict.create(
-        policy_hidden_layer_sizes=(512, 256, 128),
-        value_hidden_layer_sizes=(512, 256, 128),
-        policy_obs_key="state",
-        value_obs_key="privileged_state",
+        policy_hidden_layer_sizes=(512, 256, 128),  # 策略网络隐藏层大小
+        value_hidden_layer_sizes=(512, 256, 128),  # 价值网络隐藏层大小
+        policy_obs_key="state",  # 策略网络观测键
+        value_obs_key="privileged_state",  # 价值网络观测键（特权状态）
     )
-    rl_config.num_resets_per_eval = 1
+    rl_config.num_resets_per_eval = 1  # 每次评估的重置次数
   else:
     raise ValueError(f"Unsupported env: {env_name}")
 

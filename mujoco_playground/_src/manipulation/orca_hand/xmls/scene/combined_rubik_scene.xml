@@ -9,8 +9,10 @@
       <joint type="hinge" limited="true" margin="0.01" armature="0.001" damping="0.10000000000000001" frictionloss="0.001"/>
       <position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2"/>
       <default class="orcahand_right/visual_base">
+        <!-- 定义了视觉几何体的基础属性：type="mesh"（网格类型）、contype="0"（无碰撞接触）、conaffinity="0"（无碰撞亲和力）、condim="1"（1D 接触维度）、group="2"（渲染组别）。 -->
         <geom type="mesh" contype="0" conaffinity="0" condim="1" group="2"/>
         <default class="orcahand_right/skin">
+          <!-- 继承自 visual_base，并添加了材质属性（material="orcahand_right/white" 和 material="orcahand_right/black"） -->
           <geom material="orcahand_right/white"/>
         </default>
         <default class="orcahand_right/bone">
