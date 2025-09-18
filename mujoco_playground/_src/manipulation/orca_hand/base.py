@@ -79,7 +79,7 @@ class OrcaHandEnv(mjx_env.MjxEnv):
     # 转换 MuJoCo 模型为 MJX 模型
     print(f"开始将 MuJoCo 模型转换为 MJX 模型: {xml_path}")
     self._mjx_model = mjx.put_model(self._mj_model, impl=self._config.impl)
-    print("✅ MJX 模型转换成功完成!")
+    print("MJX 模型转换成功完成!")
     self._xml_path = xml_path
   # 可选：预览模型以检查场景设置
     self._preview_model_if_enabled()
