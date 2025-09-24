@@ -169,13 +169,13 @@ def brax_ppo_config(
   elif env_name == "OrcaRubikReorient":
     rl_config.num_timesteps = 5_000  # 训练总时间步数
     rl_config.num_evals = 20  # 评估次数
-    rl_config.num_minibatches = 8  # 每个批次的小批量数量
+    rl_config.num_minibatches = 32  # 每个批次的小批量数量
     rl_config.unroll_length = 20  # 展开长度（用于序列处理）
     rl_config.num_updates_per_batch = 2  # 每个批次的更新次数
     rl_config.discounting = 0.99  # 折扣因子
     rl_config.learning_rate = 3e-4  # 学习率
     rl_config.entropy_cost = 1e-2  # 熵代价系数
-    rl_config.num_envs = 8  # 并行环境数量
+    rl_config.num_envs = 1024  # 并行环境数量
     rl_config.batch_size = 64  # 批次大小
     # 网络工厂配置：策略网络和价值网络的隐藏层大小及观测键
     rl_config.network_factory = config_dict.create(

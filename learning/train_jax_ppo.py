@@ -524,14 +524,7 @@ def main(argv):
 
   # 训练或加载模型
   print("步骤 8: 开始训练...")
-  print(f"GPU内存使用情况 (训练开始前):")
-  try:
-    result = subprocess.run(['nvidia-smi', '--query-gpu=memory.used,memory.total', '--format=csv,noheader,nounits'], 
-                          capture_output=True, text=True, timeout=5)
-    print(f"GPU内存: {result.stdout.strip()}")
-  except:
-    print("无法获取GPU内存信息")
-  
+
   print("开始调用train_fn...")
   
   try:
